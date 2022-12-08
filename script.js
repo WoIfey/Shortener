@@ -172,7 +172,7 @@ function shortener() {
   const textID = document.querySelector("#textID");
 
   textID.style.visibility = "visible";
-  uniqueID.href = "Link-Shortener/?id=" + link.key;
+  uniqueID.href = "/?id=" + link.key;
   uniqueID.innerText = uniqueID.href;
   // Clear input
   input.value = "";
