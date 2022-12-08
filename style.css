@@ -1,0 +1,440 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+:root {
+  --blue-color: #6e87de;
+  --pink-color: #d9616f;
+  --white: #ffffff;
+  --gradient-bg: linear-gradient(
+    0deg,
+    rgba(217, 97, 111, 1) 50%,
+    rgba(123, 189, 239, 1) 100%
+  );
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+  scroll-behavior: smooth;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--gradient-bg);
+  background-attachment: fixed;
+}
+
+/* Background */
+#bg {
+  height: 100vh;
+  width: 100vw;
+  background-image: url(Images/bg1920.png);
+  position: absolute;
+  z-index: 0;
+}
+
+/* Navbar */
+ul {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  padding: 40px;
+  position: fixed;
+  z-index: 2;
+  font-size: 25px;
+}
+
+li {
+  margin: 10px;
+  color: var(--white);
+}
+
+#navSpacing {
+  width: 88vw;
+  display: flex;
+  align-items: center;
+}
+#navSpacing a {
+  text-decoration: none;
+  color: var(--white);
+  transition: 0.5s;
+}
+#navSpacing a:hover {
+  transition: 0.5s;
+  color: var(--pink-color);
+}
+
+.right {
+  position: absolute;
+  right: 0;
+  width: 0%;
+  z-index: 3;
+}
+
+a {
+  text-decoration: none;
+  color: var(--white);
+}
+
+a:hover {
+  color: var(--white);
+}
+
+/* Email Username */
+#name {
+  color: var(--pink-color);
+  margin-left: -330px;
+  width: 17vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Logout button */
+#login,
+#logout {
+  width: 110px;
+  height: 50px;
+  border-radius: 75px;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  background: var(--pink-color);
+}
+
+#logout {
+  visibility: hidden;
+}
+
+#login:hover,
+#logout:hover {
+  transition: 0.5s;
+  color: var(--white);
+  background: var(--blue-color);
+}
+
+/* modal footer */
+.footer-login,
+.footer-register,
+.footer-reset {
+  text-align: end;
+  padding-right: 15px;
+}
+.footer-login {
+  color: var(--blue-color);
+  cursor: pointer;
+}
+#loginError {
+  color: black;
+}
+#resetPass {
+  color: var(--blue-color);
+  cursor: pointer;
+  padding-top: 10px;
+}
+#registerTxt {
+  padding-top: 10px;
+}
+
+/* Text above input */
+#inputText {
+  display: flex;
+  justify-content: center;
+}
+
+#inputHeader {
+  color: var(--white);
+  font-size: 20px;
+}
+
+/* Input and send button */
+#input {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+#inputURL {
+  width: 575px;
+  height: 75px;
+  border-radius: 75px 0 0 75px;
+  border: none;
+  outline: none;
+  padding-left: 40px;
+  padding-right: 20px;
+  font-size: 20px;
+  color: var(--blue-color);
+  box-shadow: 0 0 8px var(--white);
+}
+#send {
+  width: 90px;
+  height: 75px;
+  border-radius: 0 75px 75px 0;
+  background: var(--blue-color);
+  border: none;
+  cursor: pointer;
+  padding-top: 5px;
+  margin-left: -5px;
+  box-shadow: 0 0 8px var(--blue-color);
+}
+
+/* The Short URL */
+#textID {
+  visibility: hidden;
+  width: auto;
+  height: auto;
+  margin: 15px;
+  padding: 10px;
+  border-radius: 75px;
+  background-color: var(--white);
+  text-align: center;
+  color: var(--white);
+  padding-top: 10px;
+  box-shadow: 0 0 8px var(--white);
+}
+#textID:hover {
+  box-shadow: 0 0 10px var(--blue-color);
+  transition: 0.5s;
+}
+
+#uniqueID {
+  color: black;
+  font-size: 20px;
+}
+
+/* About section */
+#aboutSection {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.infoHeader {
+  display: flex;
+  justify-content: center;
+  color: var(--white);
+  border-bottom: 3px solid var(--white);
+  width: 1100px;
+  font-size: 48px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+#infoIcons {
+  display: flex;
+  justify-content: space-evenly;
+}
+.infoIcon {
+  width: 87px;
+  height: 87px;
+  border-radius: 50%;
+  padding: 15px;
+  background: var(--blue-color);
+  margin: 30px 0 10px 0;
+}
+
+.infoText {
+  color: var(--white);
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 1280px) {
+  #bg {
+    background-image: url(Images/bg1280.png);
+    background-position: cover;
+    background-repeat: no-repeat;
+    background-size: auto;
+  }
+  ul {
+    font-size: 20px;
+    padding: 30px;
+  }
+  #navSpacing {
+    width: 83vw;
+  }
+  #name {
+    margin-left: -235px;
+    width: 18vw;
+  }
+  #inputURL {
+    width: 450px;
+    height: 65px;
+    padding-left: 20px;
+  }
+  #textID {
+    width: 520px;
+    height: 80px;
+  }
+  #send {
+    width: 100px;
+    height: 65px;
+  }
+  #sendIcon {
+    width: 35px;
+    height: 35px;
+  }
+  #login {
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+  }
+  .infoHeader {
+    justify-content: start;
+    border-bottom: 2px solid var(--white);
+    width: 900px;
+    font-size: 40px;
+  }
+  .infoIcon {
+    width: 70px;
+    height: 70px;
+    padding: 8px;
+  }
+  .infoText {
+    color: var(--white);
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+@media only screen and (max-width: 800px) {
+  #bg {
+    background-image: url(Images/bg800.png);
+    background-position: cover;
+    background-repeat: no-repeat;
+    background-size: auto;
+  }
+  ul {
+    font-size: 15px;
+    padding: 20px;
+  }
+  #navSpacing {
+    width: 79vw;
+  }
+  #name {
+    margin-left: -150px;
+    width: 23vw;
+  }
+  #inputURL {
+    width: 370px;
+    height: 65px;
+    padding-left: 20px;
+  }
+  #textID {
+    width: 440px;
+    height: 80px;
+  }
+  #send {
+    width: 90px;
+    height: 65px;
+  }
+  #sendIcon {
+    width: 35px;
+    height: 35px;
+  }
+  #login {
+    width: 75px;
+    height: 40px;
+    font-size: 15px;
+  }
+  #logout {
+    width: 75px;
+    height: 40px;
+    font-size: 15px;
+  }
+  .infoHeader {
+    justify-content: start;
+    border-bottom: 2px solid var(--white);
+    width: 500px;
+    font-size: 40px;
+  }
+  .infoIcon {
+    width: 70px;
+    height: 70px;
+    padding: 8px;
+  }
+  .infoText {
+    color: var(--white);
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+@media only screen and (max-width: 476px) {
+  #bg {
+    background-image: url(Images/bg476.png);
+    background-position: cover;
+    background-repeat: no-repeat;
+    background-size: auto;
+  }
+  ul {
+    font-size: 15px;
+    padding: 10px;
+  }
+  #navSpacing {
+    width: 78vw;
+  }
+  #logout {
+    font-size: 13px;
+    width: 70px;
+    height: 30px;
+  }
+  #name {
+    margin-left: -130px;
+    width: 27vw;
+  }
+  #inputURL {
+    width: 240px;
+    height: 45px;
+    padding-left: 20px;
+  }
+  #textID {
+    width: 280px;
+    height: 70px;
+  }
+  #send {
+    width: 60px;
+    height: 45px;
+  }
+  #sendIcon {
+    width: 25px;
+    height: 25px;
+  }
+  #login {
+    width: 70px;
+    height: 30px;
+    font-size: 13px;
+  }
+  .infoHeader {
+    justify-content: start;
+    border-bottom: 2px solid var(--white);
+    width: 300px;
+    font-size: 20px;
+  }
+  .infoIcon {
+    width: 50px;
+    height: 50px;
+    padding: 8px;
+  }
+  .infoText {
+    color: var(--white);
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  #uniqueID {
+    font-size: 15px;
+  }
+}
