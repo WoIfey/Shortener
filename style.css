@@ -248,6 +248,10 @@ a:hover {
   justify-content: center;
 }
 
+#linksSection {
+  height: 100vh;
+}
+
 @media only screen and (max-width: 1280px) {
   #bg {
     background-image: url(Images/bg1280.png);

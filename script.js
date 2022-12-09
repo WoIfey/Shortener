@@ -82,6 +82,9 @@ onAuthStateChanged(auth, (user) => {
     onValue(listRef, (snapshot) => {
       const data = snapshot.val();
       console.log(data);
+      const links = document.createElement("p");
+      document.querySelector("#linksSection").appendChild(links);
+      links.innerHTML = data;
     });
   } else {
     loginButton.style.display = "inherit";
@@ -172,7 +175,7 @@ function shortener() {
   const textID = document.querySelector("#textID");
 
   textID.style.visibility = "visible";
-  uniqueID.href = "/" + "/?id=" + link.key;
+  uniqueID.href = document.URL + "?id=" + link.key;
   uniqueID.innerText = uniqueID.href;
   // Clear input
   input.value = "";
