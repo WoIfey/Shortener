@@ -19,8 +19,9 @@
     <div id="navbar">
         <ul>
             <div id="navSpacing">
-                <li><a href="#">URL SHORTENER</a></li>
-                <li><a href="#aboutSection">ABOUT</a></li>
+                <li><a href="#bg"><!-- URL SHORTENER --></a></li>
+                <li><a href="#linksSection"><!-- Links --></a></li>
+                <li><a href="#aboutSection"><!-- ABOUT --></a></li>
                 <li class="right">
                     <input type="button" id="login" value="LOGIN" data-bs-toggle="modal" data-bs-target="#login-modal">
                 </li>
@@ -34,14 +35,13 @@
         </ul>
     </div>
 
-
     <!-- URL shortener -->
     <div id="input">
         <div>
-            <div id="inputText">
+            <div class="inputText">
                 <p id="inputHeader">Shorten your links for free!</p>
             </div>
-            <input id="inputURL" type="text" placeholder="Paste your URL...">
+            <input id="inputURL" type="url" placeholder="Paste your URL...">
             <button type="button" id="send">
                 <svg id="sendIcon" width="40" height="40" fill="none" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
@@ -53,11 +53,17 @@
             <div id="textID">
                 <a id="uniqueID" target="_blank"></a>
             </div>
+            <div class="inputText">
+                <p id="noURL"></p>
+            </div>
         </div>
     </div>
 
     <section id="linksSection">
-
+        <h1>YOUR LINKS!</h1>
+        <div id="links">
+            <a id="URLS" target="_blank"></a>
+        </div>
     </section>
 
     <!-- Icons and about section -->

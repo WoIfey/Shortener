@@ -80,11 +80,12 @@ onAuthStateChanged(auth, (user) => {
 
     const listRef = ref(db, "users/" + user.uid);
     onValue(listRef, (snapshot) => {
-      const data = snapshot.val();
+      const data = Object.keys(snapshot.val());
       console.log(data);
-      const links = document.createElement("p");
-      document.querySelector("#linksSection").appendChild(links);
-      links.innerHTML = data;
+      const links = document.querySelector("#URLS");
+      document.querySelector("#links").appendChild(links);
+      links.href = document.URL + "?id=" + data[0];
+      links.innerText = links.href;
     });
   } else {
     loginButton.style.display = "inherit";
@@ -181,15 +182,36 @@ function shortener() {
   input.value = "";
 }
 
+// Send and enter input
 const button = document.querySelector("#send");
 const input = document.querySelector("#inputURL");
+const noURL = document.querySelector("#noURL");
+function notURL() {
+  noURL.innerText = "Not an valid URL!";
+  noURL.style.display = "inherit";
+  setInterval(() => {
+    noURL.style.display = "none";
+  }, 3000);
+}
+
+// https checker
+function isValidHttpUrl(string) {
+  try {
+    const newUrl = new URL(string);
+    return newUrl.protocol === "http:" || newUrl.protocol === "https:";
+  } catch (err) {
+    return false;
+  }
+}
 
 // Creates a unique ID for database when pressing the send button
 button.addEventListener("click", function (e) {
   e.preventDefault();
 
-  if (input.value !== "") {
+  if (isValidHttpUrl(input.value) == true) {
     shortener();
+  } else {
+    notURL();
   }
 });
 
@@ -198,8 +220,10 @@ input.addEventListener("keypress", function (e) {
   if (e.key == "Enter") {
     e.preventDefault();
 
-    if (input.value !== "") {
+    if (isValidHttpUrl(input.value) == true) {
       shortener();
+    } else {
+      notURL();
     }
   }
 });

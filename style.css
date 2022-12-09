@@ -141,9 +141,10 @@ a:hover {
 }
 
 /* Text above input */
-#inputText {
+.inputText {
   display: flex;
   justify-content: center;
+  color: var(--white);
 }
 
 #inputHeader {
@@ -250,6 +251,23 @@ a:hover {
 
 #linksSection {
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--white);
+}
+
+#links {
+  width: 500px;
+  height: auto;
+  border-radius: 20px;
+  background: var(--blue-color);
+}
+
+#URLS {
+  display: flex;
+  width: 500px;
 }
 
 @media only screen and (max-width: 1280px) {
