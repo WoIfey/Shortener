@@ -270,7 +270,7 @@ a:hover {
 
 /* 1280px */
 @media only screen and (max-width: 1280px) {
-  #bg {
+  body {
     background-image: url(Images/bg1280.png);
   }
   ul {
@@ -322,7 +322,7 @@ a:hover {
 
 /* 800px */
 @media only screen and (max-width: 800px) {
-  #bg {
+  body {
     background-image: url(Images/bg800.png);
   }
   ul {
@@ -379,7 +379,7 @@ a:hover {
 
 /* 476px */
 @media only screen and (max-width: 476px) {
-  #bg {
+  body {
     background-image: url(Images/bg476.png);
   }
   ul {
