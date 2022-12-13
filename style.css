@@ -95,7 +95,7 @@ a:hover {
   border: none;
   cursor: pointer;
   background: var(--blue-color);
-  transition: 0.5s12;
+  transition: 0.5s;
 }
 
 #logout {
