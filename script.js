@@ -196,7 +196,7 @@ function notURL() {
   noURL.style.display = "inherit";
   setInterval(() => {
     noURL.style.display = "none";
-  }, 3000);
+  }, 5000);
 }
 
 // https checker

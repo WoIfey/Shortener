@@ -179,6 +179,9 @@ a:hover {
   margin-left: -5px;
   box-shadow: 0 0 8px var(--blue-color);
 }
+#noURL {
+  padding-top: 10px;
+}
 
 /* The Short URL */
 #textID {
