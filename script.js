@@ -180,7 +180,7 @@ function shortener() {
   const uniqueID = document.querySelector("#uniqueID");
   const textID = document.querySelector("#textID");
 
-  textID.style.visibility = "visible";
+  textID.style.display = "inherit";
   uniqueID.href = document.URL + "?id=" + link.key;
   uniqueID.innerText = uniqueID.href;
   // Clear input

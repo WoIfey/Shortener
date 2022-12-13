@@ -18,15 +18,13 @@ html {
   overflow-x: hidden;
 }
 
-/* Background */
-#bg {
+body {
   height: 300vh;
   width: 100vw;
+  background: black;
   background-image: url(Images/bg1920.png);
   background-position: cover;
   background-repeat: no-repeat;
-  background-size: auto;
-  position: absolute;
   z-index: -1;
 }
 
@@ -185,7 +183,7 @@ a:hover {
 
 /* The Short URL */
 #textID {
-  visibility: hidden;
+  display: none;
   width: auto;
   height: auto;
   margin: 15px;
