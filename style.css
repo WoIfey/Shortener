@@ -23,7 +23,9 @@ html {
   height: 300vh;
   width: 100vw;
   background-image: url(Images/bg1920.png);
+  background-position: cover;
   background-repeat: no-repeat;
+  background-size: auto;
   position: absolute;
   z-index: -1;
 }
@@ -202,6 +204,30 @@ a:hover {
   font-size: 20px;
 }
 
+/* Links section */
+#linksSection {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--white);
+}
+
+#links {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  border-radius: 20px;
+  background: var(--blue-color);
+}
+
+.URLS:hover {
+  text-shadow: 0 0 8px var(--white);
+}
+
 /* About section */
 #aboutSection {
   height: 100vh;
@@ -241,35 +267,10 @@ a:hover {
   justify-content: center;
 }
 
-#linksSection {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: var(--white);
-}
-
-#links {
-  display: flex;
-  flex-direction: column;
-  width: auto;
-  height: auto;
-  padding: 10px;
-  border-radius: 20px;
-  background: var(--blue-color);
-}
-
-.URLS:hover {
-  text-shadow: 0 0 8px var(--white);
-}
-
+/* 1280px */
 @media only screen and (max-width: 1280px) {
   #bg {
     background-image: url(Images/bg1280.png);
-    background-position: cover;
-    background-repeat: no-repeat;
-    background-size: auto;
   }
   ul {
     font-size: 20px;
@@ -287,10 +288,6 @@ a:hover {
     height: 65px;
     padding-left: 20px;
   }
-  #textID {
-    width: 520px;
-    height: 80px;
-  }
   #send {
     width: 100px;
     height: 65px;
@@ -305,8 +302,6 @@ a:hover {
     font-size: 20px;
   }
   .infoHeader {
-    justify-content: start;
-    border-bottom: 2px solid var(--white);
     width: 900px;
     font-size: 40px;
   }
@@ -323,12 +318,11 @@ a:hover {
     justify-content: center;
   }
 }
+
+/* 800px */
 @media only screen and (max-width: 800px) {
   #bg {
     background-image: url(Images/bg800.png);
-    background-position: cover;
-    background-repeat: no-repeat;
-    background-size: auto;
   }
   ul {
     font-size: 15px;
@@ -347,7 +341,7 @@ a:hover {
     padding-left: 20px;
   }
   #textID {
-    width: 440px;
+    width: 430px;
     height: 80px;
   }
   #send {
@@ -369,8 +363,6 @@ a:hover {
     font-size: 15px;
   }
   .infoHeader {
-    justify-content: start;
-    border-bottom: 2px solid var(--white);
     width: 500px;
     font-size: 40px;
   }
@@ -380,19 +372,14 @@ a:hover {
     padding: 8px;
   }
   .infoText {
-    color: var(--white);
     font-size: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
   }
 }
+
+/* 476px */
 @media only screen and (max-width: 476px) {
   #bg {
     background-image: url(Images/bg476.png);
-    background-position: cover;
-    background-repeat: no-repeat;
-    background-size: auto;
   }
   ul {
     font-size: 15px;
@@ -444,11 +431,7 @@ a:hover {
     padding: 8px;
   }
   .infoText {
-    color: var(--white);
     font-size: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
   }
   #uniqueID {
     font-size: 15px;
