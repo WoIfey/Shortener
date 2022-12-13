@@ -82,15 +82,19 @@ onAuthStateChanged(auth, (user) => {
     onValue(listRef, (snapshot) => {
       const data = Object.keys(snapshot.val());
       console.log(data);
-      const links = document.querySelector("#URLS");
+
+      const links = document.createElement("a");
       document.querySelector("#links").appendChild(links);
+
+      links.classList = "URLS";
       links.href = document.URL + "?id=" + data[0];
+      links.setAttribute("target", "_blank");
       links.innerText = links.href;
     });
   } else {
-    loginButton.style.display = "inherit";
+    /*     loginButton.style.display = "inherit";
     logout.style.visibility = "hidden";
-    userName.style.visibility = "hidden";
+    userName.style.visibility = "hidden"; */
   }
 });
 
@@ -156,6 +160,7 @@ logOut.addEventListener("click", (e) => {
     const auth = getAuth();
     signOut(auth).then(() => {
       // Sign-out successful.
+      window.location.reload();
     });
   }
 });

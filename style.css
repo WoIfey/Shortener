@@ -4,11 +4,6 @@
   --blue-color: #6e87de;
   --pink-color: #d9616f;
   --white: #ffffff;
-  --gradient-bg: linear-gradient(
-    0deg,
-    rgba(217, 97, 111, 1) 50%,
-    rgba(123, 189, 239, 1) 100%
-  );
 }
 
 * {
@@ -23,18 +18,14 @@ html {
   overflow-x: hidden;
 }
 
-body {
-  background: var(--gradient-bg);
-  background-attachment: fixed;
-}
-
 /* Background */
 #bg {
-  height: 100vh;
+  height: 300vh;
   width: 100vw;
   background-image: url(Images/bg1920.png);
+  background-repeat: no-repeat;
   position: absolute;
-  z-index: 0;
+  z-index: -1;
 }
 
 /* Navbar */
@@ -86,7 +77,7 @@ a:hover {
 
 /* Email Username */
 #name {
-  color: var(--pink-color);
+  color: var(--white);
   margin-left: -330px;
   width: 17vw;
   white-space: nowrap;
@@ -103,7 +94,8 @@ a:hover {
   font-size: 20px;
   border: none;
   cursor: pointer;
-  background: var(--pink-color);
+  background: var(--blue-color);
+  transition: 0.5s12;
 }
 
 #logout {
@@ -114,7 +106,7 @@ a:hover {
 #logout:hover {
   transition: 0.5s;
   color: var(--white);
-  background: var(--blue-color);
+  background: #aa3340;
 }
 
 /* modal footer */
@@ -259,15 +251,17 @@ a:hover {
 }
 
 #links {
-  width: 500px;
+  display: flex;
+  flex-direction: column;
+  width: auto;
   height: auto;
+  padding: 10px;
   border-radius: 20px;
   background: var(--blue-color);
 }
 
-#URLS {
-  display: flex;
-  width: 500px;
+.URLS:hover {
+  text-shadow: 0 0 8px var(--white);
 }
 
 @media only screen and (max-width: 1280px) {
