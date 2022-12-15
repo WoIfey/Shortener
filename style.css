@@ -212,7 +212,7 @@ a:hover {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   color: var(--white);
 }
@@ -221,11 +221,16 @@ a:hover {
   display: flex;
   flex-direction: column;
   width: 500px;
-  height: auto;
+  height: 500px;
+  visibility: hidden;
   overflow: hidden;
   padding: 10px;
   border-radius: 20px;
   background: var(--blue-color);
+}
+
+.URLS {
+  margin-bottom: 1rem;
 }
 
 .URLS:hover {
@@ -304,6 +309,9 @@ a:hover {
     height: 50px;
     font-size: 20px;
   }
+  #links {
+    width: 400px;
+  }
   .infoHeader {
     width: 800px;
     font-size: 35px;
@@ -360,6 +368,9 @@ a:hover {
     width: 75px;
     height: 40px;
     font-size: 15px;
+  }
+  #links {
+    width: 300px;
   }
   .infoHeader {
     width: 500px;
@@ -418,6 +429,9 @@ a:hover {
     width: 70px;
     height: 30px;
     font-size: 13px;
+  }
+  #links {
+    width: 250px;
   }
   .infoHeader {
     width: 300px;

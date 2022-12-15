@@ -62,6 +62,7 @@ const registerModal = new bootstrap.Modal("#register-modal");
 const loginButton = document.querySelector("#login");
 const userName = document.querySelector("#name");
 const logout = document.querySelector("#logout");
+const linksBox = document.querySelector("#links");
 
 const auth = getAuth();
 let userData;
@@ -69,32 +70,34 @@ let userData;
 // Stay logged in or logged out
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    console.log(user);
     userData = user;
     loginButton.style.display = "none";
     loginModal.hide();
     logout.style.visibility = "visible";
-    userName.style.visibility = "visible";
     userName.innerText = "Hello, " + user.email;
+    linksBox.style.visibility = "visible";
 
     const listRef = ref(db, "users/" + user.uid);
     onValue(listRef, (snapshot) => {
-      const keys = Object.keys(snapshot.val());
-      const values = Object.values(snapshot.val());
-      console.log(keys);
-      console.log(values);
+      const items = snapshot.val();
 
-      const link = document.createElement("a");
-      const redirect = document.createElement("p");
-      document.querySelector("#links").appendChild(redirect);
-      document.querySelector("#links").appendChild(link);
+      // Clear all links
+      document.querySelector("#links").replaceChildren();
 
-      redirect.innerText = values[0];
+      // Add in a new link into the link section
+      for (let item in items) {
+        const linkElement = document.createElement("a");
+        const redirectLink = document.createElement("p");
+        document.querySelector("#links").appendChild(redirectLink);
+        document.querySelector("#links").appendChild(linkElement);
 
-      link.classList = "URLS";
-      link.href = document.URL + "?id=" + keys[0];
-      link.setAttribute("target", "_blank");
-      link.innerText = link.href;
+        redirectLink.innerText = items[item];
+
+        linkElement.classList = "URLS";
+        linkElement.href = document.URL + "?id=" + item;
+        linkElement.setAttribute("target", "_blank");
+        linkElement.innerText = linkElement.href;
+      }
     });
   } else {
     /*     loginButton.style.display = "inherit";

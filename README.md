@@ -1,3 +1,3 @@
-# Shortener
-https://woifey.github.io/Shortener/
-(wip)
+# Link Shortener
+
+Not intended for public use.
