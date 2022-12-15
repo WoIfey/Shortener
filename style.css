@@ -96,6 +96,7 @@ a:hover {
   border: none;
   cursor: pointer;
   background: var(--blue-color);
+  color: var(--white);
   transition: 0.5s;
 }
 
@@ -106,7 +107,6 @@ a:hover {
 #login:hover,
 #logout:hover {
   transition: 0.5s;
-  color: var(--white);
   background: #aa3340;
 }
 
@@ -127,9 +127,6 @@ a:hover {
 #resetPass {
   color: var(--blue-color);
   cursor: pointer;
-  padding-top: 10px;
-}
-#registerTxt {
   padding-top: 10px;
 }
 
@@ -220,11 +217,11 @@ a:hover {
 #links {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 500px;
+  align-items: flex-start;
+  width: 700px;
   height: 500px;
   visibility: hidden;
-  overflow: hidden;
+  overflow: scroll;
   padding: 10px;
   border-radius: 20px;
   background: var(--blue-color);
@@ -232,8 +229,8 @@ a:hover {
 
 .URLS {
   margin-bottom: 1rem;
-  background: var(--pink-color);
-  border-radius: 15px;
+  background: #466eff;
+  border-radius: 5px;
   padding: 5px;
 }
 
