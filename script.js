@@ -33,7 +33,6 @@ const firebaseConfig = {
 };
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
-
 // Redirect link
 // =========================================================
 const queryString = window.location.search;
@@ -80,16 +79,22 @@ onAuthStateChanged(auth, (user) => {
 
     const listRef = ref(db, "users/" + user.uid);
     onValue(listRef, (snapshot) => {
-      const data = Object.keys(snapshot.val());
-      console.log(data);
+      const keys = Object.keys(snapshot.val());
+      const values = Object.values(snapshot.val());
+      console.log(keys);
+      console.log(values);
 
-      const links = document.createElement("a");
-      document.querySelector("#links").appendChild(links);
+      const link = document.createElement("a");
+      const redirect = document.createElement("p");
+      document.querySelector("#links").appendChild(redirect);
+      document.querySelector("#links").appendChild(link);
 
-      links.classList = "URLS";
-      links.href = document.URL + "?id=" + data[0];
-      links.setAttribute("target", "_blank");
-      links.innerText = links.href;
+      redirect.innerText = values[0];
+
+      link.classList = "URLS";
+      link.href = document.URL + "?id=" + keys[0];
+      link.setAttribute("target", "_blank");
+      link.innerText = link.href;
     });
   } else {
     /*     loginButton.style.display = "inherit";
