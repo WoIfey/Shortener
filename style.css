@@ -104,6 +104,7 @@ a:hover {
   background: var(--blue-color);
   color: var(--white);
   transition: 0.5s;
+  box-shadow: 0 0 5px black;
 }
 
 #logout {
@@ -233,22 +234,15 @@ a:hover {
   overflow: scroll;
 }
 
-.ICONS {
-  height: 20px;
-  width: 20px;
-}
-
 .LINKS {
-  background: #d9616f;
-  padding: 3px;
-  border-radius: 5px;
+  text-shadow: 0 0 8px black;
 }
 
 .URLS {
   margin-bottom: 1rem;
-  background: #466eff;
+  background: #374fa7;
   border-radius: 5px;
-  padding: 5px;
+  padding: 4px;
 }
 
 .URLS:hover {
