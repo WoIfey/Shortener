@@ -221,7 +221,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 700px;
+  width: auto;
   height: 500px;
   visibility: hidden;
   overflow: scroll;
@@ -313,9 +313,6 @@ a:hover {
     height: 50px;
     font-size: 20px;
   }
-  #links {
-    width: 400px;
-  }
   .infoHeader {
     width: 800px;
     font-size: 35px;
@@ -351,10 +348,6 @@ a:hover {
     height: 65px;
     padding-left: 20px;
   }
-  #textID {
-    width: 430px;
-    height: 80px;
-  }
   #send {
     width: 90px;
     height: 65px;
@@ -368,13 +361,14 @@ a:hover {
     height: 40px;
     font-size: 15px;
   }
+  #textID {
+    width: 430px;
+    height: 80px;
+  }
   #logout {
     width: 75px;
     height: 40px;
     font-size: 15px;
-  }
-  #links {
-    width: 300px;
   }
   .infoHeader {
     width: 500px;
@@ -403,11 +397,6 @@ a:hover {
   #navSpacing {
     width: 78vw;
   }
-  #logout {
-    font-size: 13px;
-    width: 70px;
-    height: 30px;
-  }
   #name {
     margin-left: -130px;
     width: 27vw;
@@ -416,10 +405,6 @@ a:hover {
     width: 240px;
     height: 45px;
     padding-left: 20px;
-  }
-  #textID {
-    width: 280px;
-    height: 70px;
   }
   #send {
     width: 60px;
@@ -434,8 +419,17 @@ a:hover {
     height: 30px;
     font-size: 13px;
   }
-  #links {
-    width: 250px;
+  #logout {
+    font-size: 13px;
+    width: 70px;
+    height: 30px;
+  }
+  #textID {
+    width: 280px;
+    height: 70px;
+  }
+  #uniqueID {
+    font-size: 15px;
   }
   .infoHeader {
     width: 300px;
@@ -448,8 +442,5 @@ a:hover {
   }
   .infoText {
     font-size: 20px;
-  }
-  #uniqueID {
-    font-size: 15px;
   }
 }
