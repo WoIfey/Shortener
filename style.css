@@ -121,8 +121,11 @@ a:hover {
   color: var(--blue-color);
   cursor: pointer;
 }
-#loginError {
+#loginError,
+#resetError,
+#registerError {
   color: black;
+  margin-bottom: 1rem !important;
 }
 #resetPass {
   color: var(--blue-color);
