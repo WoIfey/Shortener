@@ -92,6 +92,7 @@ onAuthStateChanged(auth, (user) => {
         document.querySelector("#links").appendChild(linkElement);
 
         redirectLink.innerText = items[item];
+        redirectLink.classList = "LINKS";
 
         linkElement.classList = "URLS";
         linkElement.href = document.URL + "?id=" + item;

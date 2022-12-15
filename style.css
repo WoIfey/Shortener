@@ -231,9 +231,17 @@ a:hover {
   height: 500px;
   visibility: hidden;
   overflow: scroll;
-  padding: 10px;
-  border-radius: 20px;
-  background: var(--blue-color);
+}
+
+.ICONS {
+  height: 20px;
+  width: 20px;
+}
+
+.LINKS {
+  background: #d9616f;
+  padding: 3px;
+  border-radius: 5px;
 }
 
 .URLS {
