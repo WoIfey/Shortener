@@ -23,7 +23,13 @@ p {
 body {
   height: 300vh;
   width: 100vw;
-  background: black;
+  background: linear-gradient(
+    0deg,
+    rgba(221, 111, 49, 1) 8%,
+    rgba(123, 189, 239, 1) 52%,
+    rgba(217, 97, 111, 1) 96%
+  );
+
   background-image: url(Images/bg1920.png);
   background-size: cover;
   background-repeat: no-repeat;
