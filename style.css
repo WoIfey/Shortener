@@ -25,7 +25,7 @@ body {
   width: 100vw;
   background: black;
   background-image: url(Images/bg1920.png);
-  background-position: cover;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 
@@ -221,7 +221,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: auto;
+  width: 600px;
   height: 500px;
   visibility: hidden;
   overflow: scroll;
@@ -313,6 +313,9 @@ a:hover {
     height: 50px;
     font-size: 20px;
   }
+  #links {
+    width: 500px;
+  }
   .infoHeader {
     width: 800px;
     font-size: 35px;
@@ -360,6 +363,9 @@ a:hover {
     width: 75px;
     height: 40px;
     font-size: 15px;
+  }
+  #links {
+    width: 400px;
   }
   #textID {
     width: 430px;
@@ -418,6 +424,9 @@ a:hover {
     width: 70px;
     height: 30px;
     font-size: 13px;
+  }
+  #links {
+    width: 300px;
   }
   #logout {
     font-size: 13px;
