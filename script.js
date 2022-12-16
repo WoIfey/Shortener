@@ -115,14 +115,14 @@ document.querySelector("#reset-button").addEventListener("click", function () {
     .then(() => {
       errorMessage.innerText = "Sent! (Check your junk email)";
       errorMessage.style.display = "inherit";
-      setInterval(() => {
+      setTimeout(() => {
         errorMessage.style.display = "none";
       }, 5000);
     })
     .catch((error) => {
       errorMessage.innerText = error;
       errorMessage.style.display = "inherit";
-      setInterval(() => {
+      setTimeout(() => {
         errorMessage.style.display = "none";
       }, 5000);
     });
@@ -136,7 +136,7 @@ document.querySelector("#login-button").addEventListener("click", function () {
   signInWithEmailAndPassword(auth, email, password).catch((error) => {
     errorMessage.innerText = error;
     errorMessage.style.display = "inherit";
-    setInterval(() => {
+    setTimeout(() => {
       errorMessage.style.display = "none";
     }, 5000);
   });
@@ -156,7 +156,7 @@ document
       .catch((error) => {
         errorMessage.innerText = error;
         errorMessage.style.display = "inherit";
-        setInterval(() => {
+        setTimeout(() => {
           errorMessage.style.display = "none";
         }, 5000);
       });
@@ -203,16 +203,16 @@ const noURL = document.querySelector("#noURL");
 function notURL() {
   noURL.innerText = "Not an valid URL!";
   noURL.style.display = "inherit";
-  setInterval(() => {
+  setTimeout(() => {
     noURL.style.display = "none";
   }, 5000);
 }
 function shortened() {
   noURL.innerText = "Link Shortened!";
   noURL.style.display = "inherit";
-  setInterval(() => {
+  setTimeout(() => {
     noURL.style.display = "none";
-  }, 2000);
+  }, 3000);
 }
 
 // https checker
