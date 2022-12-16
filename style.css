@@ -23,6 +23,7 @@ p {
 body {
   height: 300vh;
   width: 100vw;
+  background: rgb(221, 111, 49);
   background: linear-gradient(
     0deg,
     rgba(221, 111, 49, 1) 8%,
