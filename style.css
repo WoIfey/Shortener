@@ -104,7 +104,7 @@ a:hover {
   background: var(--blue-color);
   color: var(--white);
   transition: 0.5s;
-  box-shadow: 0 0 5px black;
+  box-shadow: 0 0 3px white;
 }
 
 #logout {
@@ -229,9 +229,9 @@ a:hover {
   flex-direction: column;
   align-items: flex-start;
   width: 600px;
-  height: 500px;
+  height: 600px;
   visibility: hidden;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 .LINKS {
@@ -240,7 +240,7 @@ a:hover {
 
 .URLS {
   margin-bottom: 1rem;
-  background: #374fa7;
+  background: #058bb4;
   border-radius: 5px;
   padding: 4px;
 }
@@ -351,7 +351,7 @@ a:hover {
     width: 79vw;
   }
   #name {
-    margin-left: -150px;
+    margin-left: -180px;
     width: 23vw;
   }
   #inputURL {
@@ -416,12 +416,12 @@ a:hover {
     width: 27vw;
   }
   #inputURL {
-    width: 240px;
+    width: 220px;
     height: 45px;
     padding-left: 20px;
   }
   #send {
-    width: 60px;
+    width: 50px;
     height: 45px;
   }
   #sendIcon {

@@ -207,6 +207,13 @@ function notURL() {
     noURL.style.display = "none";
   }, 5000);
 }
+function shortened() {
+  noURL.innerText = "Link Shortened!";
+  noURL.style.display = "inherit";
+  setInterval(() => {
+    noURL.style.display = "none";
+  }, 2000);
+}
 
 // https checker
 function isValidHttpUrl(string) {
@@ -224,6 +231,7 @@ button.addEventListener("click", function (e) {
 
   if (isValidHttpUrl(input.value) == true) {
     shortener();
+    shortened();
   } else {
     notURL();
   }
@@ -236,6 +244,7 @@ input.addEventListener("keypress", function (e) {
 
     if (isValidHttpUrl(input.value) == true) {
       shortener();
+      shortened();
     } else {
       notURL();
     }
