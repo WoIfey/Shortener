@@ -72,7 +72,7 @@ a:hover {
   transition: 0.5s;
   position: absolute;
   top: 15px;
-  box-shadow: 0 0 5px black;
+  box-shadow: 0 0 3px white;
 }
 
 #logout {
@@ -237,14 +237,14 @@ a:hover {
   flex-direction: column;
   align-items: flex-start;
   width: 600px;
-  height: 500px;
+  height: 600px;
   visibility: hidden;
   overflow-y: scroll;
 }
 
 .URLS {
   margin-bottom: 1rem;
-  background: #374fa7;
+  background: #058bb4;
   border-radius: 5px;
   padding: 4px;
 }
@@ -381,12 +381,12 @@ a:hover {
 /* 476px */
 @media only screen and (max-width: 476px) {
   #inputURL {
-    width: 240px;
+    width: 220px;
     height: 45px;
     padding-left: 20px;
   }
   #send {
-    width: 60px;
+    width: 50px;
     height: 45px;
   }
   #sendIcon {
