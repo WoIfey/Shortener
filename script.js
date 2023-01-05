@@ -59,11 +59,9 @@ if (id) {
 
 const loginModal = new bootstrap.Modal("#login-modal");
 const registerModal = new bootstrap.Modal("#register-modal");
-const linksModal = new bootstrap.Modal("#links-modal");
 const loginButton = document.querySelector("#login");
 const userName = document.querySelector("#name");
 const logout = document.querySelector("#logout");
-const linksBox = document.querySelector("#links");
 
 const auth = getAuth();
 let userData;
@@ -76,7 +74,6 @@ onAuthStateChanged(auth, (user) => {
     loginModal.hide();
     logout.style.visibility = "visible";
     userName.innerText = "Hello, " + user.email;
-    linksBox.style.visibility = "visible";
 
     const listRef = ref(db, "users/" + user.uid);
     onValue(listRef, (snapshot) => {
@@ -101,10 +98,6 @@ onAuthStateChanged(auth, (user) => {
         linkElement.innerText = linkElement.href;
       }
     });
-  } else {
-    /*     loginButton.style.display = "inherit";
-    logout.style.visibility = "hidden";
-    userName.style.visibility = "hidden"; */
   }
 });
 

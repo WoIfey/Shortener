@@ -21,6 +21,7 @@ p {
 
 /* Background */
 body {
+  background-image: url(Images/background.png);
   height: 200vh;
   width: 100vw;
 }
@@ -55,14 +56,14 @@ a:hover {
   text-overflow: ellipsis;
   position: absolute;
   top: 20px;
-  right: 160px;
+  right: 170px;
 }
 
 /* Logout button */
 #login,
 #logout {
-  width: 110px;
-  height: 50px;
+  width: 130px;
+  height: 45px;
   border-radius: 75px;
   font-size: 20px;
   border: none;
@@ -98,8 +99,7 @@ a:hover {
 #loginError,
 #resetError,
 #registerError {
-  color: black;
-  margin-bottom: 1rem !important;
+  color: var(--blue-color);
 }
 #resetPass {
   color: var(--blue-color);
@@ -108,8 +108,11 @@ a:hover {
 }
 #resetPassLinks {
   margin-top: 10px;
-  color: #142974;
+  color: var(--blue-color);
   cursor: pointer;
+}
+.resetPass {
+  width: 130px;
 }
 
 /* Text above input */
@@ -215,21 +218,29 @@ a:hover {
 }
 
 /* Links section */
-
-.linksModal {
+.modal-title {
+  color: var(--blue-color);
+}
+.modal {
   --bs-modal-width: 600px;
 }
-.linksHeader {
-  width: 600px;
-  background: var(--blue-color);
-}
-.linksBody {
-  width: 600px;
-  background: var(--blue-color);
-}
+.linksHeader,
+.linksBody,
 .linksFooter {
   width: 600px;
-  background: var(--blue-color);
+}
+.linksBody h1 {
+  color: var(--blue-color);
+}
+
+.modal-header,
+.modal-body,
+.modal-footer {
+  background: #2e313b;
+}
+
+.col-form-label {
+  color: var(--blue-color);
 }
 
 #links {
@@ -237,9 +248,12 @@ a:hover {
   flex-direction: column;
   align-items: flex-start;
   width: 600px;
-  height: 600px;
-  visibility: hidden;
+  height: 500px;
   overflow-y: scroll;
+}
+
+.LINKS {
+  color: var(--blue-color);
 }
 
 .URLS {

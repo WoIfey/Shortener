@@ -7,16 +7,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shortener</title>
     <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <!-- Login bar -->
     <div id="navbar">
-        <input type="button" id="login" value="Sign in" data-bs-toggle="modal" data-bs-target="#login-modal">
-        <input type="button" id="logout" value="Profile" data-bs-toggle="modal" data-bs-target="#links-modal">
+        <button type="button" id="login" value="Sign in" data-bs-toggle="modal" data-bs-target="#login-modal">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M17.754 14a2.249 2.249 0 0 1 2.25 2.249v.918a2.75 2.75 0 0 1-.513 1.599C17.945 20.929 15.42 22 12 22c-3.422 0-5.945-1.072-7.487-3.237a2.75 2.75 0 0 1-.51-1.595v-.92a2.249 2.249 0 0 1 2.249-2.25h11.501ZM12 2.004a5 5 0 1 1 0 10 5 5 0 0 1 0-10Z"
+                    fill="#ffffff" />
+            </svg> Sign Up</button>
+        <button type="button" id="logout" data-bs-toggle="modal" data-bs-target="#links-modal">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M17.754 14a2.249 2.249 0 0 1 2.25 2.249v.918a2.75 2.75 0 0 1-.513 1.599C17.945 20.929 15.42 22 12 22c-3.422 0-5.945-1.072-7.487-3.237a2.75 2.75 0 0 1-.51-1.595v-.92a2.249 2.249 0 0 1 2.249-2.25h11.501ZM12 2.004a5 5 0 1 1 0 10 5 5 0 0 1 0-10Z"
+                    fill="#ffffff" />
+            </svg> Profile</button>
         <p id="name"></p>
     </div>
 
@@ -37,7 +47,7 @@
                 </svg>
                 <input id="inputURL" type="url" placeholder="Paste a URL and shorten!">
                 <button type="button" id="send">
-                    <svg id="sendIcon" width="40" height="40" fill="none" viewBox="0 0 24 24"
+                    <svg id="sendIcon" width="30" height="30" fill="none" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M12 2.001c5.524 0 10 4.477 10 10s-4.476 10-10 10c-5.522 0-10-4.477-10-10s4.478-10 10-10Zm.781 5.469-.084-.073a.75.75 0 0 0-.883-.007l-.094.08-.072.084a.75.75 0 0 0-.007.883l.08.094 2.719 2.72H7.75l-.102.006a.75.75 0 0 0-.641.642L7 12l.007.102a.75.75 0 0 0 .641.641l.102.007h6.69l-2.72 2.72-.073.085a.75.75 0 0 0 1.05 1.05l.083-.073 4.002-4 .072-.085a.75.75 0 0 0 .008-.882l-.08-.094-4-4.001-.085-.073.084.073Z"
@@ -99,7 +109,7 @@
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header" data-bs-theme="dark">
                     <h1 class="modal-title fs-5" id="staticBackdropLabel">Sign in!</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -117,12 +127,12 @@
                     </form>
                 </div>
                 <div class="modal-footer">
+                    <div class="footer-login">
+                        <p id="loginError"></p>
+                    </div>
                     <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
                         data-bs-target="#register-modal">Register</button>
                     <button id="login-button" type="button" class="btn btn-primary">Proceed</button>
-                </div>
-                <div class="footer-login">
-                    <p id="loginError"></p>
                 </div>
             </div>
         </div>
@@ -133,7 +143,7 @@
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header linksHeader">
+                <div class="modal-header linksHeader" data-bs-theme="dark">
                     <h1 class="modal-title fs-5" id="staticBackdropLabel">Profile</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -141,12 +151,12 @@
                     <h1>LINKS</h1>
                     <div id="links">
                     </div>
-                    <form>
+                    <form class="resetPass">
                         <p id="resetPassLinks" data-bs-toggle="modal" data-bs-target="#reset-modal">Forgot Password?</p>
                     </form>
                 </div>
                 <div class="modal-footer linksFooter">
-                    <button id="signOutBtn" type="button" class="btn btn-primary">Sign out</button>
+                    <button id="signOutBtn" type="button" class="btn btn-danger">Sign out</button>
                 </div>
             </div>
         </div>
@@ -157,7 +167,7 @@
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header" data-bs-theme="dark">
                     <h1 class="modal-title fs-5" id="staticBackdropLabel">Register new user!</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -170,17 +180,16 @@
                         <div class="mb-2">
                             <label for="message-text" class="col-form-label">Password: (>6 characters)</label>
                             <input type="password" class="form-control" id="register-password">
-
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
+                    <div class="footer-register">
+                        <p id="registerError"></p>
+                    </div>
                     <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
                         data-bs-target="#login-modal">Login</button>
                     <button id="register-button" type="button" class="btn btn-primary">Proceed</button>
-                </div>
-                <div class="footer-register">
-                    <p id="registerError"></p>
                 </div>
             </div>
         </div>
@@ -191,7 +200,7 @@
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header" data-bs-theme="dark">
                     <h1 class="modal-title fs-5" id="staticBackdropLabel">Reset Password</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -204,17 +213,17 @@
                     </form>
                 </div>
                 <div class="modal-footer">
+                    <div class="footer-reset">
+                        <p id="resetError"></p>
+                    </div>
                     <button id="reset-button" type="button" class="btn btn-primary">Send</button>
-                </div>
-                <div class="footer-reset">
-                    <p id="resetError"></p>
                 </div>
             </div>
         </div>
     </div>
     <script type="module" src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
 </body>
 
