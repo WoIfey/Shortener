@@ -13,24 +13,11 @@
 </head>
 
 <body>
-    <!-- navbar -->
+    <!-- Login bar -->
     <div id="navbar">
-        <ul>
-            <div id="navSpacing">
-                <li><a href="#urlSection"><!-- URL SHORTENER --></a></li>
-                <li><a href="#linksSection"><!-- LINKS --></a></li>
-                <li><a href="#aboutSection"><!-- ABOUT --></a></li>
-                <li class="right">
-                    <input type="button" id="login" value="LOGIN" data-bs-toggle="modal" data-bs-target="#login-modal">
-                </li>
-                <li class="right">
-                    <p id="name"></p>
-                </li>
-                <li class="right">
-                    <input type="button" value="LOGOUT" id="logout">
-                </li>
-            </div>
-        </ul>
+        <input type="button" id="login" value="Sign in" data-bs-toggle="modal" data-bs-target="#login-modal">
+        <input type="button" id="logout" value="Profile" data-bs-toggle="modal" data-bs-target="#links-modal">
+        <p id="name"></p>
     </div>
 
     <!-- URL shortener -->
@@ -38,9 +25,17 @@
         <div id="input">
             <div>
                 <div class="inputText">
-                    <p id="inputHeader">Shorten your links for free!</p>
+                    <p id="noURL"></p>
                 </div>
-                <input id="inputURL" type="url" placeholder="Paste your URL...">
+                <div class="inputText">
+                    <p id="inputHeader">Shortened Links For FREE!</p>
+                </div>
+                <svg id="inputURLicon" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M9 7a1 1 0 0 1 .117 1.993L9 9H7a3 3 0 0 0-.176 5.995L7 15h2a1 1 0 0 1 .117 1.993L9 17H7a5 5 0 0 1-.217-9.995L7 7h2Zm8 0a5 5 0 0 1 .217 9.995L17 17h-2a1 1 0 0 1-.117-1.993L15 15h2a3 3 0 0 0 .176-5.995L17 9h-2a1 1 0 0 1-.117-1.993L15 7h2ZM7 11h10a1 1 0 0 1 .117 1.993L17 13H7a1 1 0 0 1-.117-1.993L7 11h10H7Z"
+                        fill="#6e87de" />
+                </svg>
+                <input id="inputURL" type="url" placeholder="Paste a URL and shorten!">
                 <button type="button" id="send">
                     <svg id="sendIcon" width="40" height="40" fill="none" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
@@ -49,25 +44,19 @@
                             fill="#ffffff" />
                     </svg>
                 </button>
-                <div class="inputText">
-                    <p id="noURL"></p>
-                </div>
                 <div id="textID">
                     <a id="uniqueID" target="_blank"></a>
                 </div>
             </div>
-            <div class="inputText">
-                <p id="noURL"></p>
+
+            <div>
+                <!-- For space evenly -->
             </div>
+
         </div>
     </section>
 
     <!-- Links section -->
-    <section id="linksSection">
-        <h1>YOUR LINKS!</h1>
-        <div id="links">
-        </div>
-    </section>
 
     <!-- Icons and about section -->
     <section id="aboutSection">
@@ -123,8 +112,7 @@
                         <div class="mb-2">
                             <label for="message-text" class="col-form-label">Password:</label>
                             <input type="password" class="form-control" id="login-password">
-                            <p id="resetPass" data-bs-toggle="modal" data-bs-target="#reset-modal">Forgot Password?
-                            </p>
+                            <p id="resetPass" data-bs-toggle="modal" data-bs-target="#reset-modal">Forgot Password?</p>
                         </div>
                     </form>
                 </div>
@@ -135,6 +123,30 @@
                 </div>
                 <div class="footer-login">
                     <p id="loginError"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Links Modal -->
+    <div class="modal linksModal fade" id="links-modal" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header linksHeader">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Profile</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body linksBody">
+                    <h1>LINKS</h1>
+                    <div id="links">
+                    </div>
+                    <form>
+                        <p id="resetPassLinks" data-bs-toggle="modal" data-bs-target="#reset-modal">Forgot Password?</p>
+                    </form>
+                </div>
+                <div class="modal-footer linksFooter">
+                    <button id="signOutBtn" type="button" class="btn btn-primary">Sign out</button>
                 </div>
             </div>
         </div>
@@ -192,8 +204,6 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                        data-bs-target="#login-modal">Login</button>
                     <button id="reset-button" type="button" class="btn btn-primary">Send</button>
                 </div>
                 <div class="footer-reset">

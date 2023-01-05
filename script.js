@@ -59,6 +59,7 @@ if (id) {
 
 const loginModal = new bootstrap.Modal("#login-modal");
 const registerModal = new bootstrap.Modal("#register-modal");
+const linksModal = new bootstrap.Modal("#links-modal");
 const loginButton = document.querySelector("#login");
 const userName = document.querySelector("#name");
 const logout = document.querySelector("#logout");
@@ -163,7 +164,7 @@ document
   });
 
 // Logout button
-const logOut = document.querySelector("#logout");
+const logOut = document.querySelector("#signOutBtn");
 logOut.addEventListener("click", (e) => {
   if (e.button == 0) {
     const auth = getAuth();
@@ -201,7 +202,7 @@ const button = document.querySelector("#send");
 const input = document.querySelector("#inputURL");
 const noURL = document.querySelector("#noURL");
 function notURL() {
-  noURL.innerText = "Not an valid URL!";
+  noURL.innerText = "Requested URL is not valid!";
   noURL.style.display = "inherit";
   setInterval(() => {
     noURL.style.display = "none";

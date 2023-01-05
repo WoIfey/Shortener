@@ -21,56 +21,20 @@ p {
 
 /* Background */
 body {
-  height: 300vh;
+  height: 200vh;
   width: 100vw;
-  background: linear-gradient(
-    0deg,
-    rgba(221, 111, 49, 1) 8%,
-    rgba(123, 189, 239, 1) 52%,
-    rgba(217, 97, 111, 1) 96%
-  );
-
-  background-image: url(Images/bg1920.png);
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 
-/* Navbar */
-ul {
+/* Login/Logout button */
+#navbar {
   display: flex;
-  align-items: center;
-  list-style-type: none;
-  padding: 40px;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: 100vw;
+  padding: 0px 30px 30px 30px;
   position: fixed;
   z-index: 2;
   font-size: 25px;
-}
-
-li {
-  margin: 10px;
-  color: var(--white);
-}
-
-#navSpacing {
-  width: 88vw;
-  display: flex;
-  align-items: center;
-}
-#navSpacing a {
-  text-decoration: none;
-  color: var(--white);
-  transition: 0.5s;
-}
-#navSpacing a:hover {
-  transition: 0.5s;
-  color: var(--pink-color);
-}
-
-.right {
-  position: absolute;
-  right: 0;
-  width: 0%;
-  z-index: 3;
 }
 
 a {
@@ -85,11 +49,13 @@ a:hover {
 /* Email Username */
 #name {
   color: var(--white);
-  margin-left: -330px;
-  width: 17vw;
+  padding-bottom: 5px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  position: absolute;
+  top: 20px;
+  right: 160px;
 }
 
 /* Logout button */
@@ -104,6 +70,8 @@ a:hover {
   background: var(--blue-color);
   color: var(--white);
   transition: 0.5s;
+  position: absolute;
+  top: 15px;
   box-shadow: 0 0 5px black;
 }
 
@@ -126,7 +94,6 @@ a:hover {
 }
 .footer-login {
   color: var(--blue-color);
-  cursor: pointer;
 }
 #loginError,
 #resetError,
@@ -139,25 +106,42 @@ a:hover {
   cursor: pointer;
   padding-top: 10px;
 }
+#resetPassLinks {
+  margin-top: 10px;
+  color: #142974;
+  cursor: pointer;
+}
 
 /* Text above input */
 .inputText {
-  display: flex;
-  justify-content: center;
-  color: var(--white);
+  color: #bd2a5b;
+  font-size: 15px;
+  font-weight: bold;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.6);
+  margin-left: 2.5rem !important;
 }
 
 #inputHeader {
-  color: var(--white);
-  font-size: 20px;
-  margin-bottom: 0.5rem !important;
+  color: #6e87de;
+  font-size: 30px;
+  font-weight: bold;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.6);
+  margin-bottom: 1rem !important;
 }
 
 /* Input and send button */
+#inputURLicon {
+  height: 70px;
+  padding: 20px;
+  border-radius: 75px 0 0 75px;
+  background: var(--white);
+  box-shadow: 0 0 8px var(--white);
+}
+
 #input {
   height: 100vh;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   position: relative;
   z-index: 1;
@@ -165,27 +149,35 @@ a:hover {
 
 #inputURL {
   width: 575px;
-  height: 75px;
-  border-radius: 75px 0 0 75px;
+  height: 70px;
   border: none;
   outline: none;
-  padding-left: 40px;
-  padding-right: 20px;
+  border-radius: 0 75px 75px 0;
+  padding: 0 40px 0 0;
   font-size: 20px;
+  padding-bottom: 5px;
+  margin-left: -5px;
   color: var(--blue-color);
   box-shadow: 0 0 8px var(--white);
 }
 #send {
-  width: 90px;
-  height: 75px;
-  border-radius: 0 75px 75px 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 75px;
   background: var(--blue-color);
   border: none;
   cursor: pointer;
   padding-top: 5px;
-  margin-left: -5px;
+  padding-bottom: 5px;
+  margin-left: -50px;
   box-shadow: 0 0 8px var(--blue-color);
+  transition: 0.5s;
 }
+#send:hover {
+  box-shadow: 0 0 10px var(--white);
+  transition: 0.5s;
+}
+
 #noURL {
   padding-top: 10px;
 }
@@ -203,6 +195,7 @@ a:hover {
   color: var(--white);
   padding-top: 10px;
   box-shadow: 0 0 8px var(--white);
+  transition: 0.5s;
 }
 #textID:hover {
   box-shadow: 0 0 10px var(--blue-color);
@@ -214,14 +207,29 @@ a:hover {
   font-size: 20px;
 }
 
-/* Links section */
-#linksSection {
+#urlSection {
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  color: var(--white);
+  background-image: url(Images/shortener.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Links section */
+
+.linksModal {
+  --bs-modal-width: 600px;
+}
+.linksHeader {
+  width: 600px;
+  background: var(--blue-color);
+}
+.linksBody {
+  width: 600px;
+  background: var(--blue-color);
+}
+.linksFooter {
+  width: 600px;
+  background: var(--blue-color);
 }
 
 #links {
@@ -231,11 +239,7 @@ a:hover {
   width: 600px;
   height: 500px;
   visibility: hidden;
-  overflow: scroll;
-}
-
-.LINKS {
-  text-shadow: 0 0 8px black;
+  overflow-y: scroll;
 }
 
 .URLS {
@@ -251,10 +255,13 @@ a:hover {
 
 /* About section */
 #aboutSection {
+  background-image: url(Images/about.png);
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .infoHeader {
@@ -289,20 +296,6 @@ a:hover {
 
 /* 1280px */
 @media only screen and (max-width: 1280px) {
-  body {
-    background-image: url(Images/bg1280.png);
-  }
-  ul {
-    font-size: 20px;
-    padding: 30px;
-  }
-  #navSpacing {
-    width: 83vw;
-  }
-  #name {
-    margin-left: -235px;
-    width: 18vw;
-  }
   #inputURL {
     width: 450px;
     height: 65px;
@@ -340,20 +333,6 @@ a:hover {
 
 /* 800px */
 @media only screen and (max-width: 800px) {
-  body {
-    background-image: url(Images/bg800.png);
-  }
-  ul {
-    font-size: 15px;
-    padding: 20px;
-  }
-  #navSpacing {
-    width: 79vw;
-  }
-  #name {
-    margin-left: -150px;
-    width: 23vw;
-  }
   #inputURL {
     width: 370px;
     height: 65px;
@@ -401,20 +380,6 @@ a:hover {
 
 /* 476px */
 @media only screen and (max-width: 476px) {
-  body {
-    background-image: url(Images/bg476.png);
-  }
-  ul {
-    font-size: 15px;
-    padding: 10px;
-  }
-  #navSpacing {
-    width: 78vw;
-  }
-  #name {
-    margin-left: -130px;
-    width: 27vw;
-  }
   #inputURL {
     width: 240px;
     height: 45px;
