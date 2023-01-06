@@ -1,15 +1,31 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap"); /* Nunito font */
 
+/* Main colors */
 :root {
   --blue-color: #6e87de;
   --pink-color: #d9616f;
   --white: #ffffff;
 }
 
-* {
-  font-family: "Nunito", sans-serif;
+/* Custom scrollbar for chrome */
+::-webkit-scrollbar {
+  width: 3px;
+  background-color: #00000000;
+  border-radius: 20px;
 }
 
+::-webkit-scrollbar-thumb {
+  background-color: #6e87de;
+  border-radius: 20px;
+}
+
+* {
+  font-family: "Nunito", sans-serif;
+  /* change color for scrollbar on firefox */
+  scrollbar-color: #6e87de #00000000;
+}
+
+/* hide scrollbar at the bottom */
 html {
   overflow-x: hidden;
 }
@@ -19,7 +35,7 @@ p {
   margin-bottom: 0 !important;
 }
 
-/* Background */
+/* Background if images are unloaded*/
 body {
   background-image: url(Images/background.png);
   height: 200vh;
@@ -50,13 +66,12 @@ a:hover {
 /* Email Username */
 #name {
   color: var(--white);
-  padding-bottom: 5px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   position: absolute;
-  top: 20px;
-  right: 170px;
+  top: 35px;
+  right: 200px;
 }
 
 /* Logout button */
@@ -72,8 +87,8 @@ a:hover {
   color: var(--white);
   transition: 0.5s;
   position: absolute;
-  top: 15px;
-  box-shadow: 0 0 3px white;
+  top: 30px;
+  right: 50px;
 }
 
 #logout {
@@ -104,7 +119,6 @@ a:hover {
 #resetPass {
   color: var(--blue-color);
   cursor: pointer;
-  padding-top: 10px;
 }
 #resetPassLinks {
   margin-top: 10px;
@@ -113,6 +127,9 @@ a:hover {
 }
 .resetPass {
   width: 130px;
+}
+#passwordHelpBlock {
+  color: var(--blue-color);
 }
 
 /* Text above input */
@@ -138,7 +155,6 @@ a:hover {
   padding: 20px;
   border-radius: 75px 0 0 75px;
   background: var(--white);
-  box-shadow: 0 0 8px var(--white);
 }
 
 #input {
@@ -156,24 +172,22 @@ a:hover {
   border: none;
   outline: none;
   border-radius: 0 75px 75px 0;
-  padding: 0 40px 0 0;
+  padding: 0 60px 0 0;
   font-size: 20px;
   padding-bottom: 5px;
   margin-left: -5px;
   color: var(--blue-color);
-  box-shadow: 0 0 8px var(--white);
 }
 #send {
-  width: 60px;
-  height: 60px;
+  width: 75px;
+  height: 70px;
   border-radius: 75px;
   background: var(--blue-color);
   border: none;
   cursor: pointer;
   padding-top: 5px;
   padding-bottom: 5px;
-  margin-left: -50px;
-  box-shadow: 0 0 8px var(--blue-color);
+  margin-left: -70px;
   transition: 0.5s;
 }
 #send:hover {
@@ -223,20 +237,32 @@ a:hover {
 }
 .modal {
   --bs-modal-width: 600px;
+  --bs-modal-header-border-color: #6e87de;
+  --bs-modal-footer-border-color: #6e87de;
 }
 .linksHeader,
 .linksBody,
 .linksFooter {
   width: 600px;
 }
-.linksBody h1 {
+.linksBody h5 {
   color: var(--blue-color);
 }
 
 .modal-header,
 .modal-body,
-.modal-footer {
+.modal-footer,
+.modal-content {
   background: #2e313b;
+}
+
+.btn {
+  border-radius: 75px;
+}
+
+.form-control {
+  background: rgb(34, 34, 34);
+  color: white;
 }
 
 .col-form-label {
@@ -252,13 +278,19 @@ a:hover {
   overflow-y: scroll;
 }
 
+.ph-copy {
+  font-size: 25px;
+  color: var(--white);
+  cursor: pointer;
+}
+
 .LINKS {
   color: var(--blue-color);
 }
 
 .URLS {
   margin-bottom: 1rem;
-  background: #058bb4;
+  background: #6e87de;
   border-radius: 5px;
   padding: 4px;
 }
@@ -279,13 +311,11 @@ a:hover {
 }
 
 .infoHeader {
-  display: flex;
-  justify-content: center;
   color: var(--white);
   width: 1100px;
   font-size: 48px;
   margin: 0 auto;
-  padding: 10px;
+  padding-bottom: 100px;
 }
 
 #infoIcons {
@@ -293,19 +323,15 @@ a:hover {
   justify-content: space-evenly;
 }
 .infoIcon {
-  width: 87px;
-  height: 87px;
-  border-radius: 50%;
-  padding: 15px;
+  width: 60px;
+  height: 60px;
+  padding: 10px;
+  left: 180px;
+  border: 5px solid white;
   background: var(--blue-color);
-  margin: 30px 0 10px 0;
-}
-
-.infoText {
-  color: var(--white);
-  font-size: 30px;
-  display: flex;
-  justify-content: center;
+  border-radius: 50%;
+  position: absolute;
+  top: -30px;
 }
 
 /* 1280px */

@@ -86,8 +86,15 @@ onAuthStateChanged(auth, (user) => {
       for (let item in items) {
         const linkElement = document.createElement("a");
         const redirectLink = document.createElement("p");
-        document.querySelector("#links").appendChild(redirectLink);
-        document.querySelector("#links").appendChild(linkElement);
+        const newDIV = document.createElement("div");
+        const clipboard = document.createElement("i");
+        newDIV.classList = "linksDIV";
+
+        clipboard.classList = "ph-copy";
+        document.querySelector("#links").appendChild(newDIV);
+        document.querySelector(".linksDIV").appendChild(redirectLink);
+        document.querySelector(".linksDIV").appendChild(linkElement);
+        document.querySelector(".linksDIV").appendChild(clipboard);
 
         redirectLink.innerText = items[item];
         redirectLink.classList = "LINKS";
