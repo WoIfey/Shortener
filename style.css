@@ -337,7 +337,7 @@ body {
 }
 
 /* Mobile */
-@media only screen and (max-width: 476px) {
+@media only screen and (max-width: 800px) {
   #login,
   #profile {
     top: 20px;
