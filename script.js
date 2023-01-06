@@ -33,6 +33,7 @@ const firebaseConfig = {
 };
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
+
 // Redirect link
 // =========================================================
 const queryString = window.location.search;
@@ -59,21 +60,49 @@ if (id) {
 
 const loginModal = new bootstrap.Modal("#login-modal");
 const registerModal = new bootstrap.Modal("#register-modal");
-const loginButton = document.querySelector("#login");
-const userName = document.querySelector("#name");
-const logout = document.querySelector("#logout");
+const loginBtn = document.querySelector("#login");
+const profileBtn = document.querySelector("#profile");
+const noURL = document.querySelector("#noURL");
+const button = document.querySelector("#send");
+const input = document.querySelector("#inputURL");
+const linksName = document.querySelector("#linksName");
 
 const auth = getAuth();
 let userData;
 
-// Stay logged in or logged out
+function notSignUp() {
+  noURL.innerText = "❌ You are not signed in!";
+  noURL.style.display = "inherit";
+}
+
+// URL Shortener
+function shortener() {
+  const link = push(ref(db, "links/"), {
+    UID: userData.uid,
+    URL: input.value,
+  });
+
+  set(ref(db, "users/" + userData.uid + "/" + link.key), input.value);
+
+  const uniqueID = document.querySelector("#uniqueID");
+  const textID = document.querySelector("#textID");
+
+  textID.style.display = "inherit";
+  uniqueID.href = document.URL + "?id=" + link.key;
+  uniqueID.innerText = uniqueID.href;
+  // Clear input
+  input.value = "";
+}
+
+// Check if user is logged in or logged out and stay logged in
 onAuthStateChanged(auth, (user) => {
   if (user) {
     userData = user;
-    loginButton.style.display = "none";
+    noURL.style.display = "none";
+    loginBtn.style.display = "none";
     loginModal.hide();
-    logout.style.visibility = "visible";
-    userName.innerText = "Hello, " + user.email;
+    profileBtn.style.visibility = "visible";
+    linksName.innerText = "Signed in as " + user.email;
 
     const listRef = ref(db, "users/" + user.uid);
     onValue(listRef, (snapshot) => {
@@ -81,6 +110,61 @@ onAuthStateChanged(auth, (user) => {
 
       // Clear all links
       document.querySelector("#links").replaceChildren();
+
+      // Check if it is a URL
+      function notURL() {
+        noURL.innerText = "❌ Requested URL is not valid!";
+        noURL.style.color = "#bd2a5b";
+        noURL.style.display = "inherit";
+        setTimeout(() => {
+          noURL.style.display = "none";
+        }, 5000);
+      }
+      // Say that it got shortened
+      function shortened() {
+        noURL.innerText = "✅ Link Shortened!";
+        noURL.style.color = "green";
+        noURL.style.display = "inherit";
+        setTimeout(() => {
+          noURL.style.display = "none";
+        }, 5000);
+      }
+
+      // https checker (URL checker)
+      function isValidHttpUrl(string) {
+        try {
+          const newUrl = new URL(string);
+          return newUrl.protocol === "http:" || newUrl.protocol === "https:";
+        } catch (err) {
+          return false;
+        }
+      }
+
+      // Creates a unique ID for database when pressing the send button
+      button.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        if (isValidHttpUrl(input.value) == true) {
+          shortener();
+          shortened();
+        } else {
+          notURL();
+        }
+      });
+
+      // Creates a unique ID for database when pressing enter
+      input.addEventListener("keypress", function (e) {
+        if (e.key == "Enter") {
+          e.preventDefault();
+
+          if (isValidHttpUrl(input.value) == true) {
+            shortener();
+            shortened();
+          } else {
+            notURL();
+          }
+        }
+      });
 
       // Add in a new link into the link section
       for (let item in items) {
@@ -105,6 +189,8 @@ onAuthStateChanged(auth, (user) => {
         linkElement.innerText = linkElement.href;
       }
     });
+  } else {
+    notSignUp();
   }
 });
 
@@ -114,7 +200,7 @@ document.querySelector("#reset-button").addEventListener("click", function () {
   const errorMessage = document.querySelector("#resetError");
   sendPasswordResetEmail(auth, email)
     .then(() => {
-      errorMessage.innerText = "Sent! (Check your junk email)";
+      errorMessage.innerText = "✅ Sent!";
       errorMessage.style.display = "inherit";
       setTimeout(() => {
         errorMessage.style.display = "none";
@@ -172,82 +258,5 @@ logOut.addEventListener("click", (e) => {
       // Sign-out successful.
       window.location.reload();
     });
-  }
-});
-
-// Database
-// =========================================================
-
-// URL Shortener
-function shortener() {
-  const link = push(ref(db, "links/"), {
-    UID: userData.uid,
-    URL: input.value,
-  });
-
-  set(ref(db, "users/" + userData.uid + "/" + link.key), input.value);
-
-  const uniqueID = document.querySelector("#uniqueID");
-  const textID = document.querySelector("#textID");
-
-  textID.style.display = "inherit";
-  uniqueID.href = document.URL + "?id=" + link.key;
-  uniqueID.innerText = uniqueID.href;
-  // Clear input
-  input.value = "";
-}
-
-// Send and enter input
-const button = document.querySelector("#send");
-const input = document.querySelector("#inputURL");
-const noURL = document.querySelector("#noURL");
-function notURL() {
-  noURL.innerText = "Requested URL is not valid!";
-  noURL.style.display = "inherit";
-  setTimeout(() => {
-    noURL.style.display = "none";
-  }, 5000);
-}
-function shortened() {
-  noURL.innerText = "Link Shortened!";
-  noURL.style.display = "inherit";
-  setTimeout(() => {
-    noURL.style.display = "none";
-  }, 3000);
-}
-
-// https checker
-function isValidHttpUrl(string) {
-  try {
-    const newUrl = new URL(string);
-    return newUrl.protocol === "http:" || newUrl.protocol === "https:";
-  } catch (err) {
-    return false;
-  }
-}
-
-// Creates a unique ID for database when pressing the send button
-button.addEventListener("click", function (e) {
-  e.preventDefault();
-
-  if (isValidHttpUrl(input.value) == true) {
-    shortener();
-    shortened();
-  } else {
-    notURL();
-  }
-});
-
-// Creates a unique ID for database when pressing enter
-input.addEventListener("keypress", function (e) {
-  if (e.key == "Enter") {
-    e.preventDefault();
-
-    if (isValidHttpUrl(input.value) == true) {
-      shortener();
-      shortened();
-    } else {
-      notURL();
-    }
   }
 });

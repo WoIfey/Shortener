@@ -18,10 +18,9 @@
     <!-- Login bar -->
     <div id="navbar">
         <button type="button" id="login" value="Sign in" data-bs-toggle="modal" data-bs-target="#login-modal">
-            <i class="ph-user" style="font-size: 15px;"></i> Sign Up</button>
-        <button type="button" id="logout" data-bs-toggle="modal" data-bs-target="#links-modal">
-            <i class="ph-user" style="font-size: 15px;"></i> Profile</button>
-        <p id="name"></p>
+            <i class="ph-sign-in middle" style="font-size: 18px;"></i> Sign Up</button>
+        <button type="button" id="profile" data-bs-toggle="modal" data-bs-target="#links-modal">
+            <i class="ph-user middle" style="font-size: 18px;"></i> Profile</button>
     </div>
 
     <!-- URL shortener -->
@@ -34,20 +33,23 @@
                 <div class="inputText">
                     <p id="inputHeader">Shortened Links For FREE!</p>
                 </div>
-                <svg id="inputURLicon" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M9 7a1 1 0 0 1 .117 1.993L9 9H7a3 3 0 0 0-.176 5.995L7 15h2a1 1 0 0 1 .117 1.993L9 17H7a5 5 0 0 1-.217-9.995L7 7h2Zm8 0a5 5 0 0 1 .217 9.995L17 17h-2a1 1 0 0 1-.117-1.993L15 15h2a3 3 0 0 0 .176-5.995L17 9h-2a1 1 0 0 1-.117-1.993L15 7h2ZM7 11h10a1 1 0 0 1 .117 1.993L17 13H7a1 1 0 0 1-.117-1.993L7 11h10H7Z"
-                        fill="#6e87de" />
-                </svg>
-                <input id="inputURL" type="url" placeholder="Paste a URL and shorten!">
-                <button type="button" id="send">
-                    <svg id="sendIcon" width="40" height="40" fill="none" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
+                <div>
+                    <svg id="inputURLicon" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path
-                            d="M12 2.001c5.524 0 10 4.477 10 10s-4.476 10-10 10c-5.522 0-10-4.477-10-10s4.478-10 10-10Zm.781 5.469-.084-.073a.75.75 0 0 0-.883-.007l-.094.08-.072.084a.75.75 0 0 0-.007.883l.08.094 2.719 2.72H7.75l-.102.006a.75.75 0 0 0-.641.642L7 12l.007.102a.75.75 0 0 0 .641.641l.102.007h6.69l-2.72 2.72-.073.085a.75.75 0 0 0 1.05 1.05l.083-.073 4.002-4 .072-.085a.75.75 0 0 0 .008-.882l-.08-.094-4-4.001-.085-.073.084.073Z"
-                            fill="#ffffff" />
+                            d="M9 7a1 1 0 0 1 .117 1.993L9 9H7a3 3 0 0 0-.176 5.995L7 15h2a1 1 0 0 1 .117 1.993L9 17H7a5 5 0 0 1-.217-9.995L7 7h2Zm8 0a5 5 0 0 1 .217 9.995L17 17h-2a1 1 0 0 1-.117-1.993L15 15h2a3 3 0 0 0 .176-5.995L17 9h-2a1 1 0 0 1-.117-1.993L15 7h2ZM7 11h10a1 1 0 0 1 .117 1.993L17 13H7a1 1 0 0 1-.117-1.993L7 11h10H7Z"
+                            fill="#6e87de" />
                     </svg>
-                </button>
+                    <input id="inputURL" type="url" placeholder="Paste a URL and shorten!">
+                    <button type="button" id="send">
+                        <svg id="sendIcon" width="40" height="40" fill="none" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M12 2.001c5.524 0 10 4.477 10 10s-4.476 10-10 10c-5.522 0-10-4.477-10-10s4.478-10 10-10Zm.781 5.469-.084-.073a.75.75 0 0 0-.883-.007l-.094.08-.072.084a.75.75 0 0 0-.007.883l.08.094 2.719 2.72H7.75l-.102.006a.75.75 0 0 0-.641.642L7 12l.007.102a.75.75 0 0 0 .641.641l.102.007h6.69l-2.72 2.72-.073.085a.75.75 0 0 0 1.05 1.05l.083-.073 4.002-4 .072-.085a.75.75 0 0 0 .008-.882l-.08-.094-4-4.001-.085-.073.084.073Z"
+                                fill="#ffffff" />
+                        </svg>
+                    </button>
+                </div>
+
                 <div id="textID">
                     <a id="uniqueID" target="_blank"></a>
                 </div>
@@ -59,8 +61,6 @@
 
         </div>
     </section>
-
-    <!-- Links section -->
 
     <!-- Icons and about section -->
     <section id="aboutSection">
@@ -134,7 +134,7 @@
                         <div class="mb-2">
                             <label for="message-text" class="col-form-label">Password:</label>
                             <input type="password" class="form-control" id="login-password">
-                            <p id="resetPass" class="form-text" data-bs-toggle="modal" data-bs-target="#reset-modal">
+                            <p class="resetPass" class="form-text" data-bs-toggle="modal" data-bs-target="#reset-modal">
                                 Forgot Password?</p>
                         </div>
                     </form>
@@ -144,8 +144,9 @@
                         <p id="loginError"></p>
                     </div>
                     <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                        data-bs-target="#register-modal">Register</button>
-                    <button id="login-button" type="button" class="btn btn-primary">Proceed</button>
+                        data-bs-target="#register-modal"><i class="ph-user middle"></i> Register</button>
+                    <button id="login-button" type="button" class="btn btn-primary"><i
+                            class="ph-arrow-right middle"></i> Proceed</button>
                 </div>
             </div>
         </div>
@@ -161,15 +162,19 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body linksBody">
-                    <h5>LINKS</h5>
+                    <h5>Your Links</h5>
                     <div id="links">
                     </div>
-                    <form class="resetPass">
-                        <p id="resetPassLinks" data-bs-toggle="modal" data-bs-target="#reset-modal">Forgot Password?</p>
+                    <form>
+                        <p class="resetPass" data-bs-toggle="modal" data-bs-target="#reset-modal">Forgot Password?</p>
                     </form>
                 </div>
                 <div class="modal-footer linksFooter">
-                    <button id="signOutBtn" type="button" class="btn btn-danger">Sign out</button>
+                    <div class="footer-links">
+                        <p id="linksName"></p>
+                    </div>
+                    <button id="signOutBtn" type="button" class="btn btn-danger"><i class="ph-sign-out middle"></i> Sign
+                        out</button>
                 </div>
             </div>
         </div>
@@ -193,7 +198,7 @@
                         <div class="mb-2">
                             <label for="message-text" class="col-form-label">Password:</label>
                             <input type="password" class="form-control" id="register-password">
-                            <div id="passwordHelpBlock" class="form-text">
+                            <div class="form-text">
                                 Your password must be >6 characters long.
                             </div>
                         </div>
@@ -204,8 +209,9 @@
                         <p id="registerError"></p>
                     </div>
                     <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                        data-bs-target="#login-modal">Login</button>
-                    <button id="register-button" type="button" class="btn btn-primary">Proceed</button>
+                        data-bs-target="#login-modal"><i class="ph-sign-in middle"></i> Sign In</button>
+                    <button id="register-button" type="button" class="btn btn-primary"><i
+                            class="ph-arrow-right middle"></i> Proceed</button>
                 </div>
             </div>
         </div>
@@ -225,6 +231,9 @@
                         <div class="mb-1">
                             <label for="recipient-name" class="col-form-label">Email:</label>
                             <input type="text" class="form-control" id="email-input">
+                            <div class="form-text">
+                                Be sure to check your junk email!
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -232,7 +241,8 @@
                     <div class="footer-reset">
                         <p id="resetError"></p>
                     </div>
-                    <button id="reset-button" type="button" class="btn btn-primary">Send</button>
+                    <button id="reset-button" type="button" class="btn btn-primary"><i
+                            class="ph-paper-plane-tilt middle"></i> Send</button>
                 </div>
             </div>
         </div>

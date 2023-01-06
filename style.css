@@ -9,7 +9,7 @@
 
 /* Custom scrollbar for chrome */
 ::-webkit-scrollbar {
-  width: 3px;
+  width: 5px;
   background-color: #00000000;
   border-radius: 20px;
 }
@@ -26,13 +26,19 @@
 }
 
 /* hide scrollbar at the bottom */
-html {
+html,
+body {
   overflow-x: hidden;
 }
 
 /* Fix for bootstrap css */
 p {
   margin-bottom: 0 !important;
+}
+/* Default white and no underline */
+a {
+  text-decoration: none;
+  color: var(--white);
 }
 
 /* Background if images are unloaded*/
@@ -54,51 +60,32 @@ body {
   font-size: 25px;
 }
 
-a {
-  text-decoration: none;
-  color: var(--white);
-}
-
-a:hover {
-  color: var(--white);
-}
-
-/* Email Username */
-#name {
-  color: var(--white);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  position: absolute;
-  top: 35px;
-  right: 200px;
-}
-
-/* Logout button */
+/* Profile button */
 #login,
-#logout {
+#profile {
   width: 130px;
   height: 45px;
-  border-radius: 75px;
   font-size: 20px;
-  border: none;
   cursor: pointer;
-  background: var(--blue-color);
+  border: none;
+  border-radius: 75px;
+  transition: all 0.3s ease;
+  background: linear-gradient(to right, #6e87de, #5449b9);
   color: var(--white);
-  transition: 0.5s;
   position: absolute;
-  top: 30px;
-  right: 50px;
+  top: 40px;
+  right: 55px;
 }
-
-#logout {
-  visibility: hidden;
-}
-
 #login:hover,
-#logout:hover {
-  transition: 0.5s;
-  background: #aa3340;
+#profile:hover {
+  background: linear-gradient(to right, #6e87de, #6749b9);
+  box-shadow: 0 0 10px rgba(110, 135, 222, 0.5),
+    0 0 20px rgba(110, 135, 222, 0.3), 0 0 30px rgba(110, 135, 222, 0.1);
+  transform: translateY(-2px);
+}
+
+#profile {
+  visibility: hidden;
 }
 
 /* modal footer */
@@ -114,22 +101,23 @@ a:hover {
 #loginError,
 #resetError,
 #registerError {
-  color: var(--blue-color);
+  color: var(--white);
+  font-size: 14px;
+  width: 350px;
 }
-#resetPass {
-  color: var(--blue-color);
-  cursor: pointer;
-}
-#resetPassLinks {
-  margin-top: 10px;
-  color: var(--blue-color);
-  cursor: pointer;
-}
+
 .resetPass {
   width: 130px;
-}
-#passwordHelpBlock {
+  margin-top: 10px;
+  font-size: 15px;
   color: var(--blue-color);
+  cursor: pointer;
+}
+.form-text {
+  color: var(--blue-color);
+}
+.middle {
+  vertical-align: -0.2em;
 }
 
 /* Text above input */
@@ -173,13 +161,18 @@ a:hover {
   outline: none;
   border-radius: 0 75px 75px 0;
   padding: 0 60px 0 0;
-  font-size: 20px;
-  padding-bottom: 5px;
+  font-size: 15px;
+  padding-bottom: 2px;
   margin-left: -5px;
   color: var(--blue-color);
 }
+
+#inputURL::placeholder {
+  font-size: 15px;
+}
+
 #send {
-  width: 75px;
+  width: 70px;
   height: 70px;
   border-radius: 75px;
   background: var(--blue-color);
@@ -233,12 +226,14 @@ a:hover {
 
 /* Links section */
 .modal-title {
-  color: var(--blue-color);
+  color: var(--white);
 }
 .modal {
+  --bs-modal-header-border-color: var(--white);
+  --bs-modal-footer-border-color: var(--white);
+}
+.linksModal {
   --bs-modal-width: 600px;
-  --bs-modal-header-border-color: #6e87de;
-  --bs-modal-footer-border-color: #6e87de;
 }
 .linksHeader,
 .linksBody,
@@ -246,7 +241,11 @@ a:hover {
   width: 600px;
 }
 .linksBody h5 {
-  color: var(--blue-color);
+  color: var(--white);
+}
+
+.linksFooter {
+  justify-content: space-between;
 }
 
 .modal-header,
@@ -255,7 +254,9 @@ a:hover {
 .modal-content {
   background: #2e313b;
 }
-
+#linksName {
+  color: var(--white);
+}
 .btn {
   border-radius: 75px;
 }
@@ -266,16 +267,17 @@ a:hover {
 }
 
 .col-form-label {
-  color: var(--blue-color);
+  color: var(--white);
 }
 
 #links {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 600px;
+  width: 585px;
   height: 500px;
   overflow-y: scroll;
+  overflow-x: scroll;
 }
 
 .ph-copy {
@@ -334,135 +336,78 @@ a:hover {
   top: -30px;
 }
 
-/* 1280px */
-@media only screen and (max-width: 1280px) {
-  #inputURL {
-    width: 450px;
-    height: 65px;
-    padding-left: 20px;
-  }
-  #send {
-    width: 100px;
-    height: 65px;
-  }
-  #sendIcon {
-    width: 35px;
-    height: 35px;
-  }
-  #login {
-    width: 100px;
-    height: 50px;
-    font-size: 20px;
-  }
-  #links {
-    width: 500px;
-  }
-  .infoHeader {
-    width: 800px;
-    font-size: 35px;
-  }
-  .infoIcon {
-    width: 50px;
-    height: 50px;
-    padding: 8px;
-  }
-  .infoText {
-    font-size: 25px;
-  }
-}
-
-/* 800px */
-@media only screen and (max-width: 800px) {
-  #inputURL {
-    width: 370px;
-    height: 65px;
-    padding-left: 20px;
-  }
-  #send {
-    width: 90px;
-    height: 65px;
-  }
-  #sendIcon {
-    width: 35px;
-    height: 35px;
-  }
-  #login {
-    width: 75px;
-    height: 40px;
-    font-size: 15px;
-  }
-  #links {
-    width: 400px;
-  }
-  #textID {
-    width: 430px;
-    height: 80px;
-  }
-  #logout {
-    width: 75px;
-    height: 40px;
-    font-size: 15px;
-  }
-  .infoHeader {
-    width: 500px;
-    font-size: 30px;
-  }
-  .infoIcon {
-    width: 50px;
-    height: 50px;
-    padding: 8px;
-  }
-  .infoText {
-    font-size: 25px;
-    flex-direction: column;
-  }
-}
-
-/* 476px */
+/* Mobile */
 @media only screen and (max-width: 476px) {
-  #inputURL {
-    width: 220px;
-    height: 45px;
-    padding-left: 20px;
-  }
-  #send {
-    width: 50px;
-    height: 45px;
-  }
-  #sendIcon {
-    width: 25px;
-    height: 25px;
-  }
-  #login {
-    width: 70px;
-    height: 30px;
-    font-size: 13px;
-  }
-  #links {
-    width: 300px;
-  }
-  #logout {
-    font-size: 13px;
-    width: 70px;
-    height: 30px;
-  }
-  #textID {
-    width: 280px;
-    height: 70px;
-  }
-  #uniqueID {
+  #login,
+  #profile {
+    top: 20px;
+    right: 20px;
+    width: 100px;
+    height: 35px;
     font-size: 15px;
   }
-  .infoHeader {
-    width: 300px;
-    font-size: 20px;
+  .middle {
+    font-size: 15px !important;
   }
-  .infoIcon {
-    width: 40px;
-    height: 40px;
-    padding: 8px;
+
+  #input {
+    justify-content: center;
   }
-  .infoText {
-    font-size: 20px;
+
+  #inputHeader {
+    font-size: 17px;
+  }
+
+  #noURL {
+    font-size: 13px;
+  }
+
+  #inputURL {
+    width: 250px;
+    height: 50px;
+  }
+
+  #inputURL::placeholder {
+    font-size: 10px;
+  }
+
+  #inputURLicon {
+    height: 50px;
+    padding: 15px;
+  }
+
+  #send {
+    width: 50px;
+    height: 50px;
+    margin-left: -50px;
+  }
+
+  #textID {
+    padding: 5px;
+    margin: 10px;
+  }
+
+  #uniqueID {
+    font-size: 10px;
+  }
+
+  #links {
+    width: auto;
+    height: 400px;
+  }
+
+  .linksModal {
+    --bs-modal-width: 400px;
+  }
+  .linksHeader,
+  .linksBody,
+  .linksFooter {
+    width: auto;
+  }
+  #urlSection {
+    background-image: none;
+  }
+  #aboutSection {
+    background-image: none;
   }
 }
