@@ -75,9 +75,40 @@ function notSignUp() {
   noURL.style.display = "inherit";
 }
 
+// Check if it is a URL
+function notURL() {
+  noURL.innerText = "❌ Requested URL is not valid!";
+  noURL.style.color = "#bd2a5b";
+  noURL.style.display = "inherit";
+  setTimeout(() => {
+    noURL.style.display = "none";
+  }, 5000);
+}
+
+// Say that it got shortened
+function shortened() {
+  noURL.innerText = "✅ Link Shortened!";
+  noURL.style.color = "green";
+  noURL.style.display = "inherit";
+  setTimeout(() => {
+    noURL.style.display = "none";
+  }, 5000);
+}
+
+// https checker (URL checker)
+function isValidHttpUrl(string) {
+  try {
+    const newUrl = new URL(string);
+    return newUrl.protocol === "http:" || newUrl.protocol === "https:";
+  } catch (err) {
+    return false;
+  }
+}
+
 // URL Shortener
 function shortener() {
   const link = push(ref(db, "links/"), {
+    CLICKS: 0,
     UID: userData.uid,
     URL: input.value,
   });
@@ -104,44 +135,21 @@ onAuthStateChanged(auth, (user) => {
     profileBtn.style.visibility = "visible";
     linksName.innerText = "Signed in as " + user.email;
 
-    const listRef = ref(db, "users/" + user.uid);
-    onValue(listRef, (snapshot) => {
-      const items = snapshot.val();
+    // Creates a unique ID for database when pressing the send button
+    button.addEventListener("click", function (e) {
+      e.preventDefault();
 
-      // Clear all links
-      document.querySelector("#links").replaceChildren();
-
-      // Check if it is a URL
-      function notURL() {
-        noURL.innerText = "❌ Requested URL is not valid!";
-        noURL.style.color = "#bd2a5b";
-        noURL.style.display = "inherit";
-        setTimeout(() => {
-          noURL.style.display = "none";
-        }, 5000);
+      if (isValidHttpUrl(input.value) == true) {
+        shortener();
+        shortened();
+      } else {
+        notURL();
       }
-      // Say that it got shortened
-      function shortened() {
-        noURL.innerText = "✅ Link Shortened!";
-        noURL.style.color = "green";
-        noURL.style.display = "inherit";
-        setTimeout(() => {
-          noURL.style.display = "none";
-        }, 5000);
-      }
+    });
 
-      // https checker (URL checker)
-      function isValidHttpUrl(string) {
-        try {
-          const newUrl = new URL(string);
-          return newUrl.protocol === "http:" || newUrl.protocol === "https:";
-        } catch (err) {
-          return false;
-        }
-      }
-
-      // Creates a unique ID for database when pressing the send button
-      button.addEventListener("click", function (e) {
+    // Creates a unique ID for database when pressing enter
+    input.addEventListener("keypress", function (e) {
+      if (e.key == "Enter") {
         e.preventDefault();
 
         if (isValidHttpUrl(input.value) == true) {
@@ -150,32 +158,26 @@ onAuthStateChanged(auth, (user) => {
         } else {
           notURL();
         }
-      });
+      }
+    });
 
-      // Creates a unique ID for database when pressing enter
-      input.addEventListener("keypress", function (e) {
-        if (e.key == "Enter") {
-          e.preventDefault();
+    const listRef = ref(db, "users/" + user.uid);
+    onValue(listRef, (snapshot) => {
+      const items = snapshot.val();
 
-          if (isValidHttpUrl(input.value) == true) {
-            shortener();
-            shortened();
-          } else {
-            notURL();
-          }
-        }
-      });
+      // Clear all links
+      document.querySelector("#links").replaceChildren();
 
+      const newDIV = document.createElement("div");
+      newDIV.classList = "linksDIV";
+      document.querySelector("#links").appendChild(newDIV);
       // Add in a new link into the link section
       for (let item in items) {
         const linkElement = document.createElement("a");
         const redirectLink = document.createElement("p");
-        const newDIV = document.createElement("div");
         const clipboard = document.createElement("i");
-        newDIV.classList = "linksDIV";
 
         clipboard.classList = "ph-copy";
-        document.querySelector("#links").appendChild(newDIV);
         document.querySelector(".linksDIV").appendChild(redirectLink);
         document.querySelector(".linksDIV").appendChild(linkElement);
         document.querySelector(".linksDIV").appendChild(clipboard);

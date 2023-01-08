@@ -26,8 +26,7 @@
 }
 
 /* hide scrollbar at the bottom */
-html,
-body {
+html {
   overflow-x: hidden;
 }
 
@@ -43,6 +42,7 @@ a {
 
 /* Background if images are unloaded*/
 body {
+  background: #6e87de;
   background-image: url(Images/background.png);
   height: 200vh;
   width: 100vw;
@@ -138,12 +138,6 @@ body {
 }
 
 /* Input and send button */
-#inputURLicon {
-  height: 70px;
-  padding: 20px;
-  border-radius: 75px 0 0 75px;
-  background: var(--white);
-}
 
 #input {
   height: 100vh;
@@ -169,6 +163,13 @@ body {
 
 #inputURL::placeholder {
   font-size: 15px;
+}
+
+#inputURLicon {
+  height: 70px;
+  padding: 20px;
+  border-radius: 75px 0 0 75px;
+  background: var(--white);
 }
 
 #send {
@@ -291,10 +292,9 @@ body {
 }
 
 .URLS {
-  margin-bottom: 1rem;
-  background: #6e87de;
+  background: #6e86de8e;
   border-radius: 5px;
-  padding: 4px;
+  padding: 3px;
 }
 
 .URLS:hover {
@@ -313,8 +313,10 @@ body {
 }
 
 .infoHeader {
+  display: flex;
+  justify-content: center;
   color: var(--white);
-  width: 1100px;
+  width: 100%;
   font-size: 48px;
   margin: 0 auto;
   padding-bottom: 100px;
@@ -324,6 +326,7 @@ body {
   display: flex;
   justify-content: space-evenly;
 }
+
 .infoIcon {
   width: 60px;
   height: 60px;
@@ -337,7 +340,7 @@ body {
 }
 
 /* Mobile */
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 767px) {
   #login,
   #profile {
     top: 20px;
@@ -355,31 +358,38 @@ body {
   }
 
   #inputHeader {
-    font-size: 17px;
+    font-size: 15px;
   }
 
   #noURL {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   #inputURL {
-    width: 250px;
+    width: 300px;
     height: 50px;
+    border-radius: 75px;
+    padding-left: 20px;
+    font-size: 12px;
   }
 
   #inputURL::placeholder {
-    font-size: 10px;
+    font-size: 12px;
   }
 
   #inputURLicon {
-    height: 50px;
-    padding: 15px;
+    display: none;
   }
 
   #send {
-    width: 50px;
-    height: 50px;
-    margin-left: -50px;
+    width: 40px;
+    height: 40px;
+    margin-left: -45px;
+  }
+
+  #sendIcon {
+    width: 30px;
+    height: 30px;
   }
 
   #textID {
@@ -396,9 +406,26 @@ body {
     height: 400px;
   }
 
-  .linksModal {
-    --bs-modal-width: 400px;
+  .URLS {
+    background: #00000000;
+    font-size: 15px;
   }
+
+  .LINKS {
+    font-size: 13px;
+  }
+
+  .ph-copy {
+    font-size: 15px;
+    background: #6e87de;
+    border-radius: 15px;
+  }
+
+  .col {
+    display: flex;
+    justify-content: center;
+  }
+
   .linksHeader,
   .linksBody,
   .linksFooter {
@@ -409,5 +436,7 @@ body {
   }
   #aboutSection {
     background-image: none;
+    justify-content: flex-end;
+    padding-bottom: 100px;
   }
 }
