@@ -180,14 +180,14 @@ onAuthStateChanged(auth, (user) => {
 
       const newDIV = document.createElement("div");
       newDIV.classList = "linksDIV";
-      document.querySelector("#links").appendChild(newDIV);
+      /*       document.querySelector("#links").appendChild(newDIV); */
       // Add in a new link into the link section
       for (let item in items) {
         const linkElement = document.createElement("a");
         const redirectLink = document.createElement("p");
-        const clipboard = document.createElement("i");
+        /*         const clipboard = document.createElement("i"); */
 
-        clipboard.classList = "ph-copy";
+        /*         clipboard.classList = "ph-copy"; */
         document.querySelector("#links").appendChild(linkElement);
         /*         document.querySelector(".linksDIV").appendChild(clipboard); */
         document.querySelector("#links").appendChild(redirectLink);
