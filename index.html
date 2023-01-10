@@ -18,9 +18,9 @@
     <!-- Login bar -->
     <div id="navbar">
         <button type="button" id="login" value="Sign in" data-bs-toggle="modal" data-bs-target="#login-modal">
-            <i class="ph-sign-in middle" style="font-size: 18px;"></i> Sign Up</button>
+            <img src="Icons/sign-in.svg" class="middle title"></img> Sign Up</button>
         <button type="button" id="profile" data-bs-toggle="modal" data-bs-target="#links-modal">
-            <i class="ph-user middle" style="font-size: 18px;"></i> Profile</button>
+            <img src="Icons/user.svg" class="middle title"></img> Profile</button>
     </div>
 
     <!-- URL shortener -->
@@ -122,19 +122,20 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header" data-bs-theme="dark">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel"><i class="ph-sign-in middle"></i> Sign in</h1>
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel"><img src="Icons/sign-in.svg"
+                            class="middle title"></img> Sign in</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form>
                         <div class="mb-1">
                             <label for="recipient-name" class="col-form-label">
-                                Email <i class="ph-at middle"></i></label>
+                                Email <img src="Icons/at.svg" class="middle"></img></label>
                             <input type="text" class="form-control" id="login-email">
                         </div>
                         <div class="mb-2">
                             <label for="message-text" class="col-form-label">
-                                Password <i class="ph-password middle"></i></label>
+                                Password <img src="Icons/password.svg" class="middle"></img></label>
                             <input type="password" class="form-control" id="login-password">
                             <p class="resetPass" class="form-text" data-bs-toggle="modal" data-bs-target="#reset-modal">
                                 Forgot Password?</p>
@@ -146,9 +147,10 @@
                         <p id="loginError"></p>
                     </div>
                     <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                        data-bs-target="#register-modal"><i class="ph-user middle"></i> Register</button>
-                    <button id="login-button" type="button" class="btn btn-primary"><i
-                            class="ph-arrow-right middle"></i> Proceed</button>
+                        data-bs-target="#register-modal"><img src="Icons/user.svg" class="middle"></img>
+                        Register</button>
+                    <button id="login-button" type="button" class="btn btn-primary"><img src="Icons/arrow-right.svg"
+                            class="middle"></img> Proceed</button>
                 </div>
             </div>
         </div>
@@ -160,16 +162,19 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header linksHeader" data-bs-theme="dark">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel"><i class="ph-user middle"></i> Profile</h1>
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel"><img src="Icons/user.svg"
+                            class="middle title"></img> Profile</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body linksBody">
-                    <h5><i class="ph-link middle"></i> Your Links</h5>
+                    <h5><img src="Icons/link.svg" class="middle title"></img> Your Links</h5>
                     <div id="links">
                     </div>
                     <form>
                         <button class="btn btn-primary resetPass2" type="button" data-bs-toggle="modal"
-                            data-bs-target="#reset-modal"><i class="ph-question middle"></i> Forgot Password</button>
+                            data-bs-target="#reset-modal"><img src="Icons/question.svg" class="middle"></img>
+                            Forgot
+                            Password</button>
                     </form>
                 </div>
                 <div class="modal-footer linksFooter">
@@ -178,9 +183,10 @@
                     </div>
                     <div>
                         <button type="button" class="btn btn-danger" style="margin-right: 5px;" data-bs-toggle="modal"
-                            data-bs-target="#delete-modal"><i class="ph-warning middle"></i>
+                            data-bs-target="#delete-modal"><img src="Icons/warning.svg" class="middle"></img>
                             Delete Account</button>
-                        <button id="signOutBtn" type="button" class="btn btn-danger"><i class="ph-sign-out middle"></i>
+                        <button id="signOutBtn" type="button" class="btn btn-danger"><img src="Icons/sign-in.svg"
+                                class="middle"></img>
                             Sign
                             out</button>
                     </div>
@@ -195,7 +201,8 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header" data-bs-theme="dark">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel"><i class="ph-user middle"></i> Register new
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel"><img src="Icons/user.svg"
+                            class="middle title"></img> Register new
                         user</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -203,12 +210,12 @@
                     <form>
                         <div class="mb-1">
                             <label for="recipient-name" class="col-form-label">
-                                Email <i class="ph-at middle"></i></label>
+                                Email <img src="Icons/at.svg" class="middle"></img></label>
                             <input type="text" class="form-control" id="register-email">
                         </div>
                         <div class="mb-2">
                             <label for="message-text" class="col-form-label">
-                                Password <i class="ph-password middle"></i></label>
+                                Password <img src="Icons/password.svg" class="middle"></img></label>
                             <input type="password" class="form-control" id="register-password">
                             <div class="form-text">
                                 Your password must be >6 characters long.
@@ -221,9 +228,11 @@
                         <p id="registerError"></p>
                     </div>
                     <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                        data-bs-target="#login-modal"><i class="ph-sign-in middle"></i> Sign In</button>
-                    <button id="register-button" type="button" class="btn btn-primary"><i
-                            class="ph-arrow-right middle"></i> Proceed</button>
+                        data-bs-target="#login-modal"><img src="Icons/sign-in.svg" class="middle"></img> Sign
+                        In</button>
+                    <button id="register-button" type="button" class="btn btn-primary"><img src="Icons/arrow-right.svg"
+                            class="middle"></img>
+                        Proceed</button>
                 </div>
             </div>
         </div>
@@ -235,7 +244,8 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header" data-bs-theme="dark">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel"><i class="ph-question middle"></i> Reset
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel"><img src="Icons/question.svg"
+                            class="middle title"></img> Reset
                         Password</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -243,7 +253,7 @@
                     <form>
                         <div class="mb-1">
                             <label for="recipient-name" class="col-form-label">
-                                Email <i class="ph-at middle"></i></label>
+                                Email <img src="Icons/at.svg" class="middle"></img></label>
                             <input type="text" class="form-control" id="email-input">
                             <div class="form-text">
                                 Be sure to check your junk email!
@@ -255,8 +265,8 @@
                     <div class="footer-reset">
                         <p id="resetError"></p>
                     </div>
-                    <button id="reset-button" type="button" class="btn btn-primary"><i
-                            class="ph-paper-plane-tilt middle"></i> Send</button>
+                    <button id="reset-button" type="button" class="btn btn-primary"><img
+                            src="Icons/paper-plane-tilt.svg" class="middle"></img> Send</button>
                 </div>
             </div>
         </div>
@@ -268,7 +278,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header" data-bs-theme="dark">
-                    <i class="ph-warning middle" style="color: red; font-size: 1.25rem;"></i>&nbsp;
+                    <img src="Icons/warning.svg" class="middle title"></img>&nbsp;
                     <h1 class="modal-title fs-5 deleteName" id="staticBackdropLabel" style="color: red;"> </h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -285,16 +295,17 @@
                     <h5 id="deleteFooter" style="color: white;">Are you sure?</h5>
                     <div>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#links-modal" style="margin-right: 5px;"><i
-                                class="ph-arrow-left middle"></i> Abort!</button>
-                        <button id="deleteAcc" type="button" class="btn btn-danger"><i class="ph-warning middle"></i>
+                            data-bs-target="#links-modal" style="margin-right: 5px;"><img src="Icons/arrow-left.svg"
+                                class="middle"></img>
+                            Abort!</button>
+                        <button id="deleteAcc" type="button" class="btn btn-danger"><img src="Icons/warning.svg"
+                                class="middle"></img>
                             CONFIRM</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="https://unpkg.com/phosphor-icons"></script>
     <script type="module" src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"

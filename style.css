@@ -131,6 +131,10 @@ body {
 .middle {
   vertical-align: -0.2em;
 }
+.title {
+  width: 20px !important;
+  height: 20px !important;
+}
 
 /* Text above input */
 .inputText {
