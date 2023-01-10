@@ -67,6 +67,7 @@ const noURL = document.querySelector("#noURL");
 const button = document.querySelector("#send");
 const input = document.querySelector("#inputURL");
 const linksName = document.querySelector("#linksName");
+const deleteName = document.querySelector(".deleteName");
 
 const auth = getAuth();
 let userData;
@@ -143,6 +144,7 @@ onAuthStateChanged(auth, (user) => {
     loginModal.hide();
     profileBtn.style.visibility = "visible";
     linksName.innerText = "Signed in as " + user.email;
+    deleteName.innerText = "DELETE " + user.email;
     SignedIn();
 
     // Creates a unique ID for database when pressing the send button
