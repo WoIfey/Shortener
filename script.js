@@ -77,15 +77,15 @@ let userData;
 function notSignUp() {
   loginBtn.style.visibility = "visible";
   noURL.innerText = "❌ You are not signed in!";
-  noURL.style.display = "inherit";
+  noURL.style.visibility = "visible";
 }
 // User is signed in
 function SignedIn() {
   noURL.innerText = "✅ You are signed in!";
   noURL.style.color = "green";
-  noURL.style.display = "inherit";
+  noURL.style.visibility = "visible";
   setTimeout(() => {
-    noURL.style.display = "none";
+    noURL.style.visibility = "hidden";
   }, 3000);
 }
 
@@ -103,9 +103,9 @@ function isValidHttpUrl(string) {
 function notURL() {
   noURL.innerText = "❌ Requested URL is not valid!";
   noURL.style.color = "#bd2a5b";
-  noURL.style.display = "inherit";
+  noURL.style.visibility = "visible";
   setTimeout(() => {
-    noURL.style.display = "none";
+    noURL.style.visibility = "hidden";
   }, 5000);
 }
 
@@ -113,9 +113,9 @@ function notURL() {
 function shortened() {
   noURL.innerText = "✅ Link Shortened!";
   noURL.style.color = "green";
-  noURL.style.display = "inherit";
+  noURL.style.visibility = "visible";
   setTimeout(() => {
-    noURL.style.display = "none";
+    noURL.style.visibility = "hidden";
   }, 5000);
 }
 
@@ -145,9 +145,9 @@ function shortener() {
 function copied() {
   noURL.innerText = "✅ Link Copied!";
   noURL.style.color = "green";
-  noURL.style.display = "inherit";
+  noURL.style.visibility = "visible";
   setTimeout(() => {
-    noURL.style.display = "none";
+    noURL.style.visibility = "hidden";
   }, 3000);
 }
 
@@ -176,7 +176,6 @@ copyBtn.addEventListener("click", () => {
 onAuthStateChanged(auth, (user) => {
   if (user) {
     userData = user;
-    noURL.style.display = "none";
     loginBtn.style.display = "none";
     loginModal.hide();
     profileBtn.style.visibility = "visible";

@@ -250,6 +250,7 @@ li {
   font-size: 20px;
 }
 
+/* Copy to clipboard icon */
 .copy {
   border: none;
   background: #d9616f;
@@ -257,6 +258,12 @@ li {
   width: 40px;
   height: 40px;
   visibility: hidden;
+  box-shadow: 0 0 8px var(--white);
+  transition: 0.5s;
+}
+.copy:hover {
+  box-shadow: 0 0 10px var(--blue-color);
+  transition: 0.5s;
 }
 
 #copyIcon {
