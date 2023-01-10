@@ -44,6 +44,7 @@ a {
 body {
   background: #6e87de;
   background-image: url(Images/background.png);
+  overflow-x: hidden;
   height: 200vh;
   width: 100vw;
 }

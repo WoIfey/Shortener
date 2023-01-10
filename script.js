@@ -74,6 +74,14 @@ function notSignUp() {
   noURL.innerText = "❌ You are not signed in!";
   noURL.style.display = "inherit";
 }
+function SignedIn() {
+  noURL.innerText = "✅ You are signed in!";
+  noURL.style.color = "green";
+  noURL.style.display = "inherit";
+  setTimeout(() => {
+    noURL.style.display = "none";
+  }, 3000);
+}
 
 // Check if it is a URL
 function notURL() {
@@ -134,6 +142,7 @@ onAuthStateChanged(auth, (user) => {
     loginModal.hide();
     profileBtn.style.visibility = "visible";
     linksName.innerText = "Signed in as " + user.email;
+    SignedIn();
 
     // Creates a unique ID for database when pressing the send button
     button.addEventListener("click", function (e) {
@@ -178,9 +187,9 @@ onAuthStateChanged(auth, (user) => {
         const clipboard = document.createElement("i");
 
         clipboard.classList = "ph-copy";
-        document.querySelector(".linksDIV").appendChild(redirectLink);
         document.querySelector(".linksDIV").appendChild(linkElement);
         document.querySelector(".linksDIV").appendChild(clipboard);
+        document.querySelector(".linksDIV").appendChild(redirectLink);
 
         redirectLink.innerText = items[item];
         redirectLink.classList = "LINKS";
