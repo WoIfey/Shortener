@@ -75,6 +75,7 @@ let userData;
 
 // User isnt signed up
 function notSignUp() {
+  loginBtn.style.visibility = "visible";
   noURL.innerText = "❌ You are not signed in!";
   noURL.style.display = "inherit";
 }
@@ -118,6 +119,10 @@ function shortened() {
   }, 5000);
 }
 
+const uniqueID = document.querySelector("#uniqueID");
+const copyBtn = document.querySelector("#copybutton");
+const textID = document.querySelector("#textID");
+
 // URL Shortener
 function shortener() {
   const link = push(ref(db, "links/"), {
@@ -128,15 +133,44 @@ function shortener() {
 
   set(ref(db, "users/" + userData.uid + "/" + link.key), input.value);
 
-  const uniqueID = document.querySelector("#uniqueID");
-  const textID = document.querySelector("#textID");
-
   textID.style.display = "inherit";
+  copyBtn.style.visibility = "visible";
   uniqueID.href = "?i=" + link.key;
   uniqueID.innerText = uniqueID.href;
   // Clear input
   input.value = "";
 }
+
+/* Copy to clipboard */
+function copied() {
+  noURL.innerText = "✅ Link Copied!";
+  noURL.style.color = "green";
+  noURL.style.display = "inherit";
+  setTimeout(() => {
+    noURL.style.display = "none";
+  }, 3000);
+}
+
+copyBtn.addEventListener("click", () => {
+  const text = uniqueID.textContent;
+
+  // create a temporary textarea element
+  const textArea = document.createElement("textarea");
+  textArea.value = text;
+  document.body.appendChild(textArea);
+  textArea.select();
+
+  // copy the text to the clipboard
+  try {
+    document.execCommand("copy");
+    copied();
+  } catch (err) {
+    alert("Couldn't copy URL.");
+  }
+
+  // remove the temporary textarea element
+  document.body.removeChild(textArea);
+});
 
 // Check if user is logged in or logged out and stay logged in
 onAuthStateChanged(auth, (user) => {

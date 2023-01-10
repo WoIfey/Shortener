@@ -101,6 +101,7 @@ li {
   position: absolute;
   top: 40px;
   right: 55px;
+  visibility: hidden;
 }
 #login:hover,
 #profile:hover {
@@ -108,10 +109,6 @@ li {
   box-shadow: 0 0 10px rgba(110, 135, 222, 0.5),
     0 0 20px rgba(110, 135, 222, 0.3), 0 0 30px rgba(110, 135, 222, 0.1);
   transform: translateY(-2px);
-}
-
-#profile {
-  visibility: hidden;
 }
 
 /* modal footer */
@@ -233,7 +230,7 @@ li {
   display: none;
   width: auto;
   height: auto;
-  margin: 15px;
+  margin: 15px 15px 0 15px;
   padding: 10px;
   border-radius: 75px;
   background-color: var(--white);
@@ -251,6 +248,21 @@ li {
 #uniqueID {
   color: black;
   font-size: 20px;
+}
+
+.copy {
+  border: none;
+  background: #d9616f;
+  border-radius: 50px;
+  width: 40px;
+  height: 40px;
+  visibility: hidden;
+}
+
+#copyIcon {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -30px;
 }
 
 /* link shortener background */
@@ -501,5 +513,12 @@ li {
   .linksBody,
   .linksFooter {
     width: auto;
+  }
+  .copy {
+    width: 30px;
+    height: 30px;
+  }
+  #copyIcon {
+    margin-top: -20px;
   }
 }
