@@ -129,7 +129,7 @@ function shortener() {
   const textID = document.querySelector("#textID");
 
   textID.style.display = "inherit";
-  uniqueID.href = document.URL + "?i=" + link.key;
+  uniqueID.href = "?i=" + link.key;
   uniqueID.innerText = uniqueID.href;
   // Clear input
   input.value = "";
@@ -198,7 +198,7 @@ onAuthStateChanged(auth, (user) => {
         redirectLink.classList = "LINKS";
 
         linkElement.classList = "URLS";
-        linkElement.href = document.URL + "?i=" + item;
+        linkElement.href = "?i=" + item;
         linkElement.setAttribute("target", "_blank");
         linkElement.innerText = linkElement.href;
       }

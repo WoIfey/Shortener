@@ -49,8 +49,32 @@ body {
   width: 100vw;
 }
 
+/* navbar */
+ul {
+  display: flex;
+  list-style-type: none;
+  padding: 35px 35px 35px 45px;
+  position: fixed;
+  z-index: 2;
+  font-size: 20px;
+}
+
+li a {
+  color: var(--blue-color) !important;
+  transition: 0.5s;
+}
+
+li a:hover {
+  text-shadow: 0 0 16px #ffffff;
+  transition: 0.5s;
+}
+
+li {
+  margin: 10px;
+}
+
 /* Login/Logout button */
-#navbar {
+#signupBtn {
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
@@ -370,6 +394,15 @@ body {
     width: 100px;
     height: 35px;
     font-size: 15px;
+  }
+
+  ul {
+    padding: 22px 22px 22px 10px;
+    font-size: 15px;
+  }
+
+  li {
+    margin: 5px;
   }
 
   #navbar .title {
