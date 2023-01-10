@@ -43,7 +43,7 @@ a {
 /* Background if images are unloaded*/
 body {
   background: #6e87de;
-  background-image: url(Images/background.png);
+  background-image: url(Images/background.webp);
   overflow-x: hidden;
   height: 200vh;
   width: 100vw;
@@ -232,7 +232,7 @@ body {
 
 #urlSection {
   height: 100vh;
-  background-image: url(Images/shortener.png);
+  background-image: url(Images/shortener.webp);
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -321,7 +321,7 @@ body {
 
 /* About section */
 #aboutSection {
-  background-image: url(Images/about.png);
+  background-image: url(Images/about.webp);
   height: 100vh;
   display: flex;
   flex-direction: column;
