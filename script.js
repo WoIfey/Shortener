@@ -69,13 +69,16 @@ const input = document.querySelector("#inputURL");
 const linksName = document.querySelector("#linksName");
 const deleteName = document.querySelector(".deleteName");
 
+// Get user
 const auth = getAuth();
 let userData;
 
+// User isnt signed up
 function notSignUp() {
   noURL.innerText = "❌ You are not signed in!";
   noURL.style.display = "inherit";
 }
+// User is signed in
 function SignedIn() {
   noURL.innerText = "✅ You are signed in!";
   noURL.style.color = "green";
@@ -83,6 +86,16 @@ function SignedIn() {
   setTimeout(() => {
     noURL.style.display = "none";
   }, 3000);
+}
+
+// https checker (URL checker)
+function isValidHttpUrl(string) {
+  try {
+    const newUrl = new URL(string);
+    return newUrl.protocol === "http:" || newUrl.protocol === "https:";
+  } catch (err) {
+    return false;
+  }
 }
 
 // Check if it is a URL
@@ -103,16 +116,6 @@ function shortened() {
   setTimeout(() => {
     noURL.style.display = "none";
   }, 5000);
-}
-
-// https checker (URL checker)
-function isValidHttpUrl(string) {
-  try {
-    const newUrl = new URL(string);
-    return newUrl.protocol === "http:" || newUrl.protocol === "https:";
-  } catch (err) {
-    return false;
-  }
 }
 
 // URL Shortener
@@ -173,6 +176,7 @@ onAuthStateChanged(auth, (user) => {
       }
     });
 
+    // Your links
     const listRef = ref(db, "users/" + user.uid);
     onValue(listRef, (snapshot) => {
       const items = snapshot.val();
@@ -275,23 +279,19 @@ logOut.addEventListener("click", (e) => {
   }
 });
 
+// Delete account section
 const deleteAcc = document.querySelector("#deleteAcc");
 const deleteFooter = document.querySelector("#deleteFooter");
 deleteAcc.addEventListener("click", (e) => {
   if (e.button == 0) {
     const auth = getAuth();
     const user = auth.currentUser;
-    deleteUser(user)
-      .then(() => {
-        deleteFooter.innerText = "✅ Account Deleted";
-        deleteFooter.style.color = "greenyellow";
-        setInterval(() => {
-          window.location.reload();
-        }, 3000);
-      })
-      .catch((error) => {
-        // An error ocurred
-        // ...
-      });
+    deleteUser(user).then(() => {
+      deleteFooter.innerText = "✅ Account Deleted";
+      deleteFooter.style.color = "greenyellow";
+      setInterval(() => {
+        window.location.reload();
+      }, 2000);
+    });
   }
 });

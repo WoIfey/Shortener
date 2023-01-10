@@ -132,6 +132,7 @@ li {
   width: 350px;
 }
 
+/* reset password text */
 .resetPass {
   width: 130px;
   margin-top: 10px;
@@ -152,13 +153,6 @@ li {
 
 .form-text {
   color: var(--blue-color);
-}
-.middle {
-  vertical-align: -0.2em;
-}
-.title {
-  width: 20px !important;
-  height: 20px !important;
 }
 
 /* Text above input */
@@ -234,7 +228,7 @@ li {
   padding-top: 10px;
 }
 
-/* The Short URL */
+/* The Shortened URL */
 #textID {
   display: none;
   width: auto;
@@ -259,14 +253,15 @@ li {
   font-size: 20px;
 }
 
+/* link shortener background */
 #urlSection {
   height: 100vh;
   background-image: url(Images/shortener.webp);
-  background-size: cover;
+  background-size: auto;
   background-repeat: no-repeat;
 }
 
-/* Links section */
+/* bootstrap modal changes */
 .modal-title {
   color: var(--white);
 }
@@ -285,38 +280,29 @@ li {
 .linksBody h5 {
   color: var(--white);
 }
-
 .linksFooter,
 .deleteFooter {
   justify-content: space-between;
 }
-
 .modal-header,
 .modal-body,
 .modal-footer,
 .modal-content {
   background: #2e313b;
 }
-#linksName {
-  color: var(--white);
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  width: 250px;
-}
 .btn {
   border-radius: 75px;
 }
-
 .form-control {
   background: rgb(34, 34, 34);
   color: white;
 }
-
 .col-form-label {
   color: var(--white);
 }
 
+/* Profile section */
+/* Your links on your profile */
 #links {
   display: flex;
   flex-direction: column;
@@ -326,27 +312,35 @@ li {
   overflow-y: scroll;
   overflow-x: scroll;
 }
+/* your email in profile */
+#linksName {
+  color: var(--white);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 250px;
+}
+/* shortened link */
+.URLS {
+  background: #6e86de8e;
+  border-radius: 5px;
+  padding: 3px;
+}
+/* url */
+.LINKS {
+  color: #576dbd;
+  padding-bottom: 20px;
+}
+
+.URLS:hover {
+  text-shadow: 0 0 8px var(--white);
+}
 
 /* .ph-copy {
   font-size: 25px;
   color: var(--white);
   cursor: pointer;
 } */
-
-.LINKS {
-  color: #576dbd;
-  padding-bottom: 15px;
-}
-
-.URLS {
-  background: #6e86de8e;
-  border-radius: 5px;
-  padding: 3px;
-}
-
-.URLS:hover {
-  text-shadow: 0 0 8px var(--white);
-}
 
 /* About section */
 #aboutSection {
@@ -355,7 +349,7 @@ li {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-size: cover;
+  background-size: auto;
   background-repeat: no-repeat;
 }
 
@@ -367,11 +361,6 @@ li {
   font-size: 48px;
   margin: 0 auto;
   padding-bottom: 100px;
-}
-
-#infoIcons {
-  display: flex;
-  justify-content: space-evenly;
 }
 
 .infoIcon {
@@ -386,8 +375,33 @@ li {
   top: -30px;
 }
 
-/* Mobile */
+#infoIcons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* fix position for icons */
+.middle {
+  vertical-align: -0.2em;
+}
+/* icons in titles */
+.title {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+/* Mobile and some tablets */
 @media only screen and (max-width: 767px) {
+  #urlSection {
+    background-image: url(Images/mobile-shortener.webp);
+    background-size: cover;
+  }
+  #aboutSection {
+    background-image: url(Images/mobile-about.webp);
+    justify-content: center;
+    padding-bottom: 100px;
+  }
+
   #login,
   #profile {
     top: 20px;
@@ -487,13 +501,5 @@ li {
   .linksBody,
   .linksFooter {
     width: auto;
-  }
-  #urlSection {
-    background-image: url(Images/mobile-shortener.webp);
-  }
-  #aboutSection {
-    background-image: url(Images/mobile-about.webp);
-    justify-content: flex-end;
-    padding-bottom: 100px;
   }
 }
