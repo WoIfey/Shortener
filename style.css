@@ -114,6 +114,17 @@ body {
   color: var(--blue-color);
   cursor: pointer;
 }
+
+.resetPass2 {
+  text-align: center;
+  width: 150px;
+  padding: 7px;
+  font-size: 15px;
+  color: #ffffff;
+  background: var(--blue-color);
+  border: none;
+}
+
 .form-text {
   color: var(--blue-color);
 }
@@ -246,7 +257,8 @@ body {
   color: var(--white);
 }
 
-.linksFooter {
+.linksFooter,
+.deleteFooter {
   justify-content: space-between;
 }
 
@@ -258,6 +270,10 @@ body {
 }
 #linksName {
   color: var(--white);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 250px;
 }
 .btn {
   border-radius: 75px;
@@ -289,7 +305,8 @@ body {
 }
 
 .LINKS {
-  color: var(--blue-color);
+  color: #576dbd;
+  padding-bottom: 15px;
 }
 
 .URLS {

@@ -19,6 +19,7 @@ import {
   sendPasswordResetEmail,
   onAuthStateChanged,
   signOut,
+  deleteUser,
 } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-auth.js";
 
 const firebaseConfig = {
@@ -187,9 +188,9 @@ onAuthStateChanged(auth, (user) => {
         const clipboard = document.createElement("i");
 
         clipboard.classList = "ph-copy";
-        document.querySelector(".linksDIV").appendChild(linkElement);
-        document.querySelector(".linksDIV").appendChild(clipboard);
-        document.querySelector(".linksDIV").appendChild(redirectLink);
+        document.querySelector("#links").appendChild(linkElement);
+        /*         document.querySelector(".linksDIV").appendChild(clipboard); */
+        document.querySelector("#links").appendChild(redirectLink);
 
         redirectLink.innerText = items[item];
         redirectLink.classList = "LINKS";
@@ -269,5 +270,26 @@ logOut.addEventListener("click", (e) => {
       // Sign-out successful.
       window.location.reload();
     });
+  }
+});
+
+const deleteAcc = document.querySelector("#deleteAcc");
+const deleteFooter = document.querySelector("#deleteFooter");
+deleteAcc.addEventListener("click", (e) => {
+  if (e.button == 0) {
+    const auth = getAuth();
+    const user = auth.currentUser;
+    deleteUser(user)
+      .then(() => {
+        deleteFooter.innerText = "✅ Account Deleted";
+        deleteFooter.style.color = "greenyellow";
+        setInterval(() => {
+          window.location.reload();
+        }, 3000);
+      })
+      .catch((error) => {
+        // An error ocurred
+        // ...
+      });
   }
 });
