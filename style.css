@@ -371,8 +371,10 @@ body {
     height: 35px;
     font-size: 15px;
   }
-  .middle {
-    font-size: 15px !important;
+
+  .title {
+    width: 16px !important;
+    height: 16px !important;
   }
 
   #input {
