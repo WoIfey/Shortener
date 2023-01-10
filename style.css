@@ -61,12 +61,13 @@ ul {
 
 li a {
   color: var(--blue-color) !important;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 
 li a:hover {
-  text-shadow: 0 0 16px #ffffff;
-  transition: 0.5s;
+  text-shadow: 0 0 5px rgba(110, 135, 222, 0.5),
+    0 0 10px rgba(110, 135, 222, 0.3), 0 0 30px rgba(110, 135, 222, 0.1);
+  transition: 0.3s;
 }
 
 li {
