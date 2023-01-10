@@ -39,7 +39,7 @@ const db = getDatabase(app);
 // =========================================================
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-const id = urlParams.get("id");
+const id = urlParams.get("i");
 
 if (id) {
   const dbRef = ref(getDatabase());
@@ -129,7 +129,7 @@ function shortener() {
   const textID = document.querySelector("#textID");
 
   textID.style.display = "inherit";
-  uniqueID.href = document.URL + "?id=" + link.key;
+  uniqueID.href = document.URL + "?i=" + link.key;
   uniqueID.innerText = uniqueID.href;
   // Clear input
   input.value = "";
@@ -198,7 +198,7 @@ onAuthStateChanged(auth, (user) => {
         redirectLink.classList = "LINKS";
 
         linkElement.classList = "URLS";
-        linkElement.href = document.URL + "?id=" + item;
+        linkElement.href = document.URL + "?i=" + item;
         linkElement.setAttribute("target", "_blank");
         linkElement.innerText = linkElement.href;
       }
