@@ -1,3 +1,3 @@
-# Link Shortener
+# Shortener
 
-Not intended for public use.
+### Not intended for public use.

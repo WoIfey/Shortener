@@ -63,7 +63,7 @@ const loginModal = new bootstrap.Modal("#login-modal");
 const registerModal = new bootstrap.Modal("#register-modal");
 const loginBtn = document.querySelector("#login");
 const profileBtn = document.querySelector("#profile");
-const errorTxt = document.querySelector("#errorTxt");
+const err = document.querySelector("#err");
 const button = document.querySelector("#send");
 const input = document.querySelector("#inputURL");
 const linksName = document.querySelector("#linksName");
@@ -76,16 +76,16 @@ let userData;
 // User isnt signed up
 function notSignUp() {
   loginBtn.style.visibility = "visible";
-  errorTxt.innerText = "❌ You are not signed in!";
-  errorTxt.style.visibility = "visible";
+  err.innerText = "❌ You are not signed in!";
+  err.style.visibility = "visible";
 }
 // User is signed in
 function SignedIn() {
-  errorTxt.innerText = "✅ You are signed in!";
-  errorTxt.style.color = "green";
-  errorTxt.style.visibility = "visible";
+  err.innerText = "✅ You are signed in!";
+  err.style.color = "green";
+  err.style.visibility = "visible";
   setTimeout(() => {
-    errorTxt.style.visibility = "hidden";
+    err.style.visibility = "hidden";
   }, 3000);
 }
 
@@ -101,21 +101,21 @@ function isValidHttpUrl(string) {
 
 // Check if it is a URL
 function notURL() {
-  errorTxt.innerText = "❌ Requested URL is not valid!";
-  errorTxt.style.color = "#bd2a5b";
-  errorTxt.style.visibility = "visible";
+  err.innerText = "❌ Requested URL is not valid!";
+  err.style.color = "#bd2a5b";
+  err.style.visibility = "visible";
   setTimeout(() => {
-    errorTxt.style.visibility = "hidden";
+    err.style.visibility = "hidden";
   }, 5000);
 }
 
 // Say that it got shortened
 function shortened() {
-  errorTxt.innerText = "✅ Link Shortened!";
-  errorTxt.style.color = "green";
-  errorTxt.style.visibility = "visible";
+  err.innerText = "✅ Link Shortened!";
+  err.style.color = "green";
+  err.style.visibility = "visible";
   setTimeout(() => {
-    errorTxt.style.visibility = "hidden";
+    err.style.visibility = "hidden";
   }, 5000);
 }
 
@@ -143,11 +143,11 @@ function shortener() {
 
 /* Copy to clipboard */
 function copied() {
-  errorTxt.innerText = "✅ Link Copied!";
-  errorTxt.style.color = "green";
-  errorTxt.style.visibility = "visible";
+  err.innerText = "✅ Link Copied!";
+  err.style.color = "green";
+  err.style.visibility = "visible";
   setTimeout(() => {
-    errorTxt.style.visibility = "hidden";
+    err.style.visibility = "hidden";
   }, 3000);
 }
 
