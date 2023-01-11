@@ -48,7 +48,7 @@ if (id) {
       if (snapshot.exists()) {
         location.assign(snapshot.val());
       } else {
-        console.log("No data available");
+        document.querySelector(".alert").style.display = "inherit";
       }
     })
     .catch((error) => {
@@ -63,7 +63,7 @@ const loginModal = new bootstrap.Modal("#login-modal");
 const registerModal = new bootstrap.Modal("#register-modal");
 const loginBtn = document.querySelector("#login");
 const profileBtn = document.querySelector("#profile");
-const noURL = document.querySelector("#noURL");
+const errorTxt = document.querySelector("#errorTxt");
 const button = document.querySelector("#send");
 const input = document.querySelector("#inputURL");
 const linksName = document.querySelector("#linksName");
@@ -76,16 +76,16 @@ let userData;
 // User isnt signed up
 function notSignUp() {
   loginBtn.style.visibility = "visible";
-  noURL.innerText = "❌ You are not signed in!";
-  noURL.style.visibility = "visible";
+  errorTxt.innerText = "❌ You are not signed in!";
+  errorTxt.style.visibility = "visible";
 }
 // User is signed in
 function SignedIn() {
-  noURL.innerText = "✅ You are signed in!";
-  noURL.style.color = "green";
-  noURL.style.visibility = "visible";
+  errorTxt.innerText = "✅ You are signed in!";
+  errorTxt.style.color = "green";
+  errorTxt.style.visibility = "visible";
   setTimeout(() => {
-    noURL.style.visibility = "hidden";
+    errorTxt.style.visibility = "hidden";
   }, 3000);
 }
 
@@ -101,21 +101,21 @@ function isValidHttpUrl(string) {
 
 // Check if it is a URL
 function notURL() {
-  noURL.innerText = "❌ Requested URL is not valid!";
-  noURL.style.color = "#bd2a5b";
-  noURL.style.visibility = "visible";
+  errorTxt.innerText = "❌ Requested URL is not valid!";
+  errorTxt.style.color = "#bd2a5b";
+  errorTxt.style.visibility = "visible";
   setTimeout(() => {
-    noURL.style.visibility = "hidden";
+    errorTxt.style.visibility = "hidden";
   }, 5000);
 }
 
 // Say that it got shortened
 function shortened() {
-  noURL.innerText = "✅ Link Shortened!";
-  noURL.style.color = "green";
-  noURL.style.visibility = "visible";
+  errorTxt.innerText = "✅ Link Shortened!";
+  errorTxt.style.color = "green";
+  errorTxt.style.visibility = "visible";
   setTimeout(() => {
-    noURL.style.visibility = "hidden";
+    errorTxt.style.visibility = "hidden";
   }, 5000);
 }
 
@@ -143,11 +143,11 @@ function shortener() {
 
 /* Copy to clipboard */
 function copied() {
-  noURL.innerText = "✅ Link Copied!";
-  noURL.style.color = "green";
-  noURL.style.visibility = "visible";
+  errorTxt.innerText = "✅ Link Copied!";
+  errorTxt.style.color = "green";
+  errorTxt.style.visibility = "visible";
   setTimeout(() => {
-    noURL.style.visibility = "hidden";
+    errorTxt.style.visibility = "hidden";
   }, 3000);
 }
 

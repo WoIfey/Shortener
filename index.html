@@ -22,18 +22,24 @@
     </div>
     <!-- login and profile button -->
     <div id="signupBtn">
-        <button type="button" id="login" value="Sign in" data-bs-toggle="modal" data-bs-target="#login-modal">
-            <img src="Icons/sign-in.svg" class="middle title"></img> Sign Up</button>
+        <button type="button" id="login" data-bs-toggle="modal" data-bs-target="#login-modal">
+            <img src="Icons/sign-in.svg" class="middle title"> Sign Up</button>
         <button type="button" id="profile" data-bs-toggle="modal" data-bs-target="#links-modal">
-            <img src="Icons/user.svg" class="middle title"></img> Profile</button>
+            <img src="Icons/user.svg" class="middle title"> Profile</button>
     </div>
 
     <!-- URL shortener -->
+    <div class="alert alert-danger" role="alert">
+        <img src="Icons/warning.svg" class="middle"> This shortened link does not exist.<br><a
+            href="http://wwx.ddns.net"><button type="button" id="back"><img src="Icons/arrow-left.svg" class="middle">
+                Go
+                back</button></a>
+    </div>
     <section id="urlSection">
         <div id="input">
             <div>
                 <div class="inputText">
-                    <p id="noURL"></p>
+                    <p id="errorTxt"></p>
                 </div>
                 <div class="inputText">
                     <p id="inputHeader">Shortened Links For FREE!</p>
@@ -133,19 +139,19 @@
             <div class="modal-content">
                 <div class="modal-header" data-bs-theme="dark">
                     <h1 class="modal-title fs-5" id="staticBackdropLabel"><img src="Icons/sign-in.svg"
-                            class="middle title"></img> Sign in</h1>
+                            class="middle title"> Sign in</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form>
                         <div class="mb-1">
                             <label for="recipient-name" class="col-form-label">
-                                Email <img src="Icons/at.svg" class="middle"></img></label>
+                                Email <img src="Icons/at.svg" class="middle"></label>
                             <input type="text" class="form-control" id="login-email">
                         </div>
                         <div class="mb-2">
                             <label for="message-text" class="col-form-label">
-                                Password <img src="Icons/password.svg" class="middle"></img></label>
+                                Password <img src="Icons/password.svg" class="middle"></label>
                             <input type="password" class="form-control" id="login-password">
                             <p class="resetPass" class="form-text" data-bs-toggle="modal" data-bs-target="#reset-modal">
                                 Forgot Password?</p>
@@ -157,10 +163,10 @@
                         <p id="loginError"></p>
                     </div>
                     <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                        data-bs-target="#register-modal"><img src="Icons/user.svg" class="middle"></img>
+                        data-bs-target="#register-modal"><img src="Icons/user.svg" class="middle">
                         Register</button>
                     <button id="login-button" type="button" class="btn btn-primary"><img src="Icons/arrow-right.svg"
-                            class="middle"></img> Proceed</button>
+                            class="middle"> Proceed</button>
                 </div>
             </div>
         </div>
@@ -173,16 +179,16 @@
             <div class="modal-content">
                 <div class="modal-header linksHeader" data-bs-theme="dark">
                     <h1 class="modal-title fs-5" id="staticBackdropLabel"><img src="Icons/user.svg"
-                            class="middle title"></img> Profile</h1>
+                            class="middle title"> Profile</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body linksBody">
-                    <h5><img src="Icons/link.svg" class="middle title"></img> Your Links</h5>
+                    <h5><img src="Icons/link.svg" class="middle title"> Your Links</h5>
                     <div id="links">
                     </div>
                     <form>
                         <button class="btn btn-primary resetPass2" type="button" data-bs-toggle="modal"
-                            data-bs-target="#reset-modal"><img src="Icons/question.svg" class="middle"></img>
+                            data-bs-target="#reset-modal"><img src="Icons/question.svg" class="middle">
                             Forgot
                             Password</button>
                     </form>
@@ -193,10 +199,10 @@
                     </div>
                     <div>
                         <button type="button" class="btn btn-danger" style="margin-right: 5px;" data-bs-toggle="modal"
-                            data-bs-target="#delete-modal"><img src="Icons/warning.svg" class="middle"></img>
+                            data-bs-target="#delete-modal"><img src="Icons/warning.svg" class="middle">
                             Delete Account</button>
                         <button id="signOutBtn" type="button" class="btn btn-danger"><img src="Icons/sign-in.svg"
-                                class="middle"></img>
+                                class="middle">
                             Sign
                             out</button>
                     </div>
@@ -212,7 +218,7 @@
             <div class="modal-content">
                 <div class="modal-header" data-bs-theme="dark">
                     <h1 class="modal-title fs-5" id="staticBackdropLabel"><img src="Icons/user.svg"
-                            class="middle title"></img> Register new
+                            class="middle title"> Register new
                         user</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -220,12 +226,12 @@
                     <form>
                         <div class="mb-1">
                             <label for="recipient-name" class="col-form-label">
-                                Email <img src="Icons/at.svg" class="middle"></img></label>
+                                Email <img src="Icons/at.svg" class="middle"></label>
                             <input type="text" class="form-control" id="register-email">
                         </div>
                         <div class="mb-2">
                             <label for="message-text" class="col-form-label">
-                                Password <img src="Icons/password.svg" class="middle"></img></label>
+                                Password <img src="Icons/password.svg" class="middle"></label>
                             <input type="password" class="form-control" id="register-password">
                             <div class="form-text">
                                 Your password must be >6 characters long.
@@ -238,10 +244,10 @@
                         <p id="registerError"></p>
                     </div>
                     <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                        data-bs-target="#login-modal"><img src="Icons/sign-in.svg" class="middle"></img> Sign
+                        data-bs-target="#login-modal"><img src="Icons/sign-in.svg" class="middle"> Sign
                         In</button>
                     <button id="register-button" type="button" class="btn btn-primary"><img src="Icons/arrow-right.svg"
-                            class="middle"></img>
+                            class="middle">
                         Proceed</button>
                 </div>
             </div>
@@ -255,7 +261,7 @@
             <div class="modal-content">
                 <div class="modal-header" data-bs-theme="dark">
                     <h1 class="modal-title fs-5" id="staticBackdropLabel"><img src="Icons/question.svg"
-                            class="middle title"></img> Reset
+                            class="middle title"> Reset
                         Password</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -263,7 +269,7 @@
                     <form>
                         <div class="mb-1">
                             <label for="recipient-name" class="col-form-label">
-                                Email <img src="Icons/at.svg" class="middle"></img></label>
+                                Email <img src="Icons/at.svg" class="middle"></label>
                             <input type="text" class="form-control" id="email-input">
                             <div class="form-text">
                                 Be sure to check your junk email!
@@ -276,7 +282,7 @@
                         <p id="resetError"></p>
                     </div>
                     <button id="reset-button" type="button" class="btn btn-primary"><img
-                            src="Icons/paper-plane-tilt.svg" class="middle"></img> Send</button>
+                            src="Icons/paper-plane-tilt.svg" class="middle"> Send</button>
                 </div>
             </div>
         </div>
@@ -288,7 +294,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header" data-bs-theme="dark">
-                    <img src="Icons/warning.svg" class="middle title"></img>&nbsp;
+                    <img src="Icons/warning.svg" class="middle title">&nbsp;
                     <h1 class="modal-title fs-5 deleteName" id="staticBackdropLabel" style="color: red;"> </h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -305,10 +311,10 @@
                     <div>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                             data-bs-target="#links-modal" style="margin-right: 5px;"><img src="Icons/arrow-left.svg"
-                                class="middle"></img>
+                                class="middle">
                             Abort!</button>
                         <button id="deleteAcc" type="button" class="btn btn-danger"><img src="Icons/warning.svg"
-                                class="middle"></img>
+                                class="middle">
                             CONFIRM</button>
                     </div>
                 </div>

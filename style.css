@@ -49,6 +49,22 @@ body {
   width: 100vw;
 }
 
+/* If theres an error in the shortened link */
+.alert {
+  display: none;
+  position: fixed;
+  z-index: 5;
+  top: 90px;
+  left: 50px;
+}
+#back {
+  border: none;
+  background: var(--pink-color);
+  color: var(--white);
+  cursor: pointer;
+  border-radius: 75px;
+}
+
 /* navbar */
 ul {
   display: flex;
@@ -428,6 +444,13 @@ li {
     width: 100px;
     height: 35px;
     font-size: 15px;
+  }
+
+  .alert {
+    top: 60px;
+    left: 20px;
+    width: 200px;
+    height: auto;
   }
 
   ul {
