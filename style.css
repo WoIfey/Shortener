@@ -292,7 +292,7 @@ li {
 #urlSection {
   height: 100vh;
   background-image: url(Images/shortener.webp);
-  background-size: cover;
+  background-size: auto;
   background-repeat: no-repeat;
 }
 
