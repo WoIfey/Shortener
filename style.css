@@ -89,6 +89,12 @@ li a:hover {
 li {
   margin: 10px;
 }
+.bigger {
+  font-size: 22px;
+}
+.bigger a {
+  color: var(--blue-color);
+}
 
 /* Login/Logout button */
 #signupBtn {
@@ -173,7 +179,7 @@ li {
   color: #bd2a5b;
   font-size: 15px;
   font-weight: bold;
-  text-shadow: 0 1px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 0px rgba(0, 0, 0, 0.6);
   margin-left: 2.5rem !important;
 }
 
@@ -237,7 +243,7 @@ li {
   transition: 0.5s;
 }
 
-#noURL {
+#err {
   padding-top: 10px;
 }
 
@@ -462,6 +468,10 @@ li {
     margin: 5px;
   }
 
+  .bigger {
+    font-size: 17px;
+  }
+
   #signupBtn .title {
     width: 16px !important;
     height: 16px !important;
@@ -475,7 +485,7 @@ li {
     font-size: 15px;
   }
 
-  #noURL {
+  #err {
     font-size: 12px;
   }
 

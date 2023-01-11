@@ -43,17 +43,13 @@ const id = urlParams.get("i");
 
 if (id) {
   const dbRef = ref(getDatabase());
-  get(child(dbRef, `links/${id}/URL`))
-    .then((snapshot) => {
-      if (snapshot.exists()) {
-        location.assign(snapshot.val());
-      } else {
-        document.querySelector(".alert").style.display = "inherit";
-      }
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+  get(child(dbRef, `links/${id}/URL`)).then((snapshot) => {
+    if (snapshot.exists()) {
+      location.assign(snapshot.val());
+    } else {
+      document.querySelector(".alert").style.display = "inherit";
+    }
+  });
 }
 
 // Auth
@@ -82,10 +78,11 @@ function notSignUp() {
 // User is signed in
 function SignedIn() {
   err.innerText = "✅ You are signed in!";
-  err.style.color = "green";
+  err.style.color = "#05a630";
   err.style.visibility = "visible";
   setTimeout(() => {
     err.style.visibility = "hidden";
+    err.style.color = "#bd2a5b";
   }, 3000);
 }
 
@@ -112,10 +109,11 @@ function notURL() {
 // Say that it got shortened
 function shortened() {
   err.innerText = "✅ Link Shortened!";
-  err.style.color = "green";
+  err.style.color = "#05a630";
   err.style.visibility = "visible";
   setTimeout(() => {
     err.style.visibility = "hidden";
+    err.style.color = "#bd2a5b";
   }, 5000);
 }
 
@@ -144,10 +142,11 @@ function shortener() {
 /* Copy to clipboard */
 function copied() {
   err.innerText = "✅ Link Copied!";
-  err.style.color = "green";
+  err.style.color = "#05a630";
   err.style.visibility = "visible";
   setTimeout(() => {
     err.style.visibility = "hidden";
+    err.style.color = "#bd2a5b";
   }, 3000);
 }
 
