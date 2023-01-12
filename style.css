@@ -221,7 +221,7 @@ li {
   font-size: 15px;
   padding-bottom: 2px;
   margin-left: -5px;
-  color: var(--blue-color);
+  color: black;
 }
 
 #inputURL::placeholder {
@@ -536,10 +536,11 @@ li {
     height: 400px;
   }
 
-  .URLS {
+  .URLS,
+  .mb-1,
+  .col-form-label {
     font-size: 15px;
   }
-
   .LINKS {
     font-size: 13px;
   }
@@ -563,6 +564,17 @@ li {
   }
   .linksModal {
     --bs-modal-width: 500px !important;
+  }
+
+  .modal-header,
+  .modal-body,
+  .modal-footer,
+  .modal-content {
+    width: 400px;
+  }
+
+  .modal {
+    --bs-modal-width: 400px !important;
   }
 
   .copy {
@@ -666,6 +678,17 @@ li {
   .btn {
     font-size: 13px;
     height: 30px;
+  }
+
+  .modal-header,
+  .modal-body,
+  .modal-footer,
+  .modal-content {
+    width: 300px;
+  }
+
+  .modal {
+    --bs-modal-width: 300px !important;
   }
 
   .linksHeader,
