@@ -170,6 +170,7 @@ li {
 .resetPass2 {
   text-align: center;
   width: 150px;
+  margin-top: 15px;
   padding: 7px;
   font-size: 15px;
   color: #ffffff;
@@ -323,7 +324,8 @@ li {
 }
 .linksHeader,
 .linksBody,
-.linksFooter {
+.linksFooter,
+.linksContent {
   width: 600px !important;
 }
 
@@ -356,7 +358,7 @@ li {
   width: auto;
   height: 500px;
   overflow-y: scroll;
-  overflow-x: scroll;
+  overflow-x: hidden;
 }
 /* your email in profile */
 #linksName {
@@ -450,11 +452,11 @@ li {
 
   #login,
   #profile {
-    top: 20px;
-    right: 20px;
-    width: 100px;
-    height: 35px;
-    font-size: 15px;
+    top: 30px;
+    right: 30px;
+    width: 120px;
+    height: 40px;
+    font-size: 17px;
   }
 
   .alert {
@@ -466,7 +468,7 @@ li {
 
   ul {
     padding: 22px 22px 22px 18px;
-    font-size: 15px;
+    font-size: 19px;
   }
 
   li {
@@ -474,12 +476,12 @@ li {
   }
 
   .bigger {
-    font-size: 17px;
+    font-size: 21px;
   }
 
   #signupBtn .title {
-    width: 16px !important;
-    height: 16px !important;
+    width: 18px !important;
+    height: 18px !important;
   }
 
   #input {
@@ -487,22 +489,134 @@ li {
   }
 
   #inputHeader {
+    font-size: 20px;
+  }
+
+  #err {
+    font-size: 17px;
+  }
+
+  #inputURL {
+    width: 500px;
+    height: 65px;
+    border-radius: 75px;
+    padding-left: 20px;
+    font-size: 16px;
+  }
+
+  #inputURL::placeholder {
+    font-size: 16px;
+  }
+
+  #inputURLicon {
+    display: none;
+  }
+
+  #send {
+    width: 55px;
+    height: 55px;
+    margin-left: -60px;
+  }
+
+  #sendIcon {
+    width: 35px;
+    height: 35px;
+  }
+
+  #textID {
+    padding: 5px;
+    margin: 10px;
+  }
+
+  #uniqueID {
+    font-size: 16px;
+  }
+
+  #links {
+    height: 400px;
+  }
+
+  .URLS {
     font-size: 15px;
+  }
+
+  .LINKS {
+    font-size: 13px;
+  }
+
+  /*   .ph-copy {
+    font-size: 15px;
+    background: #6e87de;
+    border-radius: 15px;
+  } */
+
+  .col {
+    display: flex;
+    justify-content: center;
+  }
+
+  .linksHeader,
+  .linksBody,
+  .linksFooter,
+  .linksContent {
+    width: 500px !important;
+  }
+  .linksModal {
+    --bs-modal-width: 500px !important;
+  }
+
+  .copy {
+    width: 40px;
+    height: 40px;
+  }
+  #copyIcon {
+    margin-top: -30px;
+  }
+}
+
+/* Fix modal for this resolution */
+@media only screen and (max-width: 575px) {
+  .modal-dialog-centered {
+    justify-content: center;
+  }
+  #login,
+  #profile {
+    top: 20px;
+    right: 20px;
+    width: 100px;
+    height: 35px;
+    font-size: 15px;
+  }
+
+  ul,
+  #inputHeader {
+    font-size: 15px;
+  }
+
+  .bigger {
+    font-size: 17px;
+  }
+
+  #signupBtn .title {
+    width: 15px !important;
+    height: 15px !important;
+  }
+
+  .title {
+    width: 14px !important;
+    height: 14px !important;
   }
 
   #err {
     font-size: 12px;
   }
 
-  #inputURL {
+  #inputURL,
+  #inputURL::placeholder {
     width: 300px;
     height: 50px;
     border-radius: 75px;
     padding-left: 20px;
-    font-size: 12px;
-  }
-
-  #inputURL::placeholder {
     font-size: 12px;
   }
 
@@ -531,33 +645,37 @@ li {
   }
 
   #links {
-    height: 400px;
+    height: 300px;
   }
 
   .URLS {
     background: #00000000;
-    font-size: 15px;
-  }
-
-  .LINKS {
     font-size: 13px;
   }
 
-  .ph-copy {
-    font-size: 15px;
-    background: #6e87de;
-    border-radius: 15px;
+  .modal-title {
+    font-size: 15px !important;
   }
 
-  .col {
-    display: flex;
-    justify-content: center;
+  .linksBody h5,
+  .LINKS,
+  #linksName {
+    font-size: 13px;
+  }
+
+  .btn {
+    font-size: 13px;
+    height: 30px;
   }
 
   .linksHeader,
   .linksBody,
-  .linksFooter {
-    width: auto;
+  .linksFooter,
+  .linksContent {
+    width: 300px !important;
+  }
+  .linksModal {
+    --bs-modal-width: 300px !important;
   }
   .copy {
     width: 30px;
