@@ -153,11 +153,18 @@ li {
 
 /* reset password text */
 .resetPass {
-  width: 130px;
+  border: none;
+  background: none;
   margin-top: 10px;
-  font-size: 15px;
+  font-size: 0.875em;
+  padding: 0;
   color: var(--blue-color);
   cursor: pointer;
+  transition: 0.5s;
+}
+.resetPass:hover {
+  color: #5449b9;
+  transition: 0.5s;
 }
 
 .resetPass2 {
@@ -172,6 +179,7 @@ li {
 
 .form-text {
   color: var(--blue-color);
+  padding-top: 10px;
 }
 
 /* Text above input */
@@ -239,7 +247,7 @@ li {
   transition: 0.5s;
 }
 #send:hover {
-  box-shadow: 0 0 10px var(--white);
+  background: #bd2a5b;
   transition: 0.5s;
 }
 
@@ -303,42 +311,39 @@ li {
 }
 
 /* bootstrap modal changes */
-.modal-title {
-  color: var(--white);
-}
 .modal {
   --bs-modal-header-border-color: var(--white);
   --bs-modal-footer-border-color: var(--white);
+  --bs-modal-width: 450px;
+  color: var(--white);
 }
+
 .linksModal {
-  --bs-modal-width: 600px;
+  --bs-modal-width: 600px !important;
 }
 .linksHeader,
 .linksBody,
 .linksFooter {
-  width: 600px;
+  width: 600px !important;
 }
-.linksBody h5 {
-  color: var(--white);
-}
+
 .linksFooter,
 .deleteFooter {
   justify-content: space-between;
 }
+
 .modal-header,
 .modal-body,
 .modal-footer,
 .modal-content {
   background: #2e313b;
+  width: 450px;
 }
 .btn {
   border-radius: 75px;
 }
 .form-control {
   background: rgb(34, 34, 34);
-  color: white;
-}
-.col-form-label {
   color: var(--white);
 }
 

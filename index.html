@@ -114,7 +114,7 @@
     <!-- Login Modal -->
     <div class="modal fade" id="login-modal" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-dialog-centered modal-login">
             <div class="modal-content">
                 <div class="modal-header" data-bs-theme="dark">
                     <h1 class="modal-title fs-5" id="staticBackdropLabel"><img src="svg/sign-in.svg"
@@ -122,18 +122,19 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form class="row">
                         <div class="mb-1">
                             <label for="recipient-name" class="col-form-label">
                                 Email <img src="svg/at.svg" class="middle"></label>
                             <input type="text" class="form-control" id="login-email">
                         </div>
-                        <div class="mb-2">
-                            <label for="message-text" class="col-form-label">
-                                Password <img src="svg/password.svg" class="middle"></label>
+                        <div class="col-auto">
+                            <label for="message-text" class="col-form-label">Password <img src="svg/password.svg"
+                                    class="middle"></label>
                             <input type="password" class="form-control" id="login-password">
-                            <p class="resetPass" class="form-text" data-bs-toggle="modal" data-bs-target="#reset-modal">
-                                Forgot Password?</p>
+                            <button class="resetPass" type="button" data-bs-toggle="modal"
+                                data-bs-target="#reset-modal">
+                                Forgot Password?</button>
                         </div>
                     </form>
                 </div>
@@ -145,46 +146,7 @@
                         data-bs-target="#register-modal"><img src="svg/user.svg" class="middle">
                         Register</button>
                     <button id="login-button" type="button" class="btn btn-primary"><img src="svg/arrow-right.svg"
-                            class="middle"> Proceed</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Profile Modal -->
-    <div class="modal linksModal fade" id="links-modal" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header linksHeader" data-bs-theme="dark">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel"><img src="svg/user.svg" class="middle title">
-                        Profile</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body linksBody">
-                    <h5><img src="svg/link.svg" class="middle title"> Your Links</h5>
-                    <div id="links">
-                    </div>
-                    <form>
-                        <button class="btn btn-primary resetPass2" type="button" data-bs-toggle="modal"
-                            data-bs-target="#reset-modal"><img src="svg/question.svg" class="middle">
-                            Forgot
-                            Password</button>
-                    </form>
-                </div>
-                <div class="modal-footer linksFooter">
-                    <div class="footer-links">
-                        <p id="linksName"></p>
-                    </div>
-                    <div>
-                        <button type="button" class="btn btn-danger" style="margin-right: 5px;" data-bs-toggle="modal"
-                            data-bs-target="#delete-modal"><img src="svg/warning.svg" class="middle">
-                            Delete Account</button>
-                        <button id="signOutBtn" type="button" class="btn btn-danger"><img src="svg/sign-in.svg"
-                                class="middle">
-                            Sign
-                            out</button>
-                    </div>
+                            class="middle"> Login</button>
                 </div>
             </div>
         </div>
@@ -202,19 +164,19 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form class="row">
                         <div class="mb-1">
                             <label for="recipient-name" class="col-form-label">
                                 Email <img src="svg/at.svg" class="middle"></label>
                             <input type="text" class="form-control" id="register-email">
                         </div>
-                        <div class="mb-2">
-                            <label for="message-text" class="col-form-label">
-                                Password <img src="svg/password.svg" class="middle"></label>
+                        <div class="col-auto">
+                            <label for="message-text" class="col-form-label">Password <img src="svg/password.svg"
+                                    class="middle"></label>
                             <input type="password" class="form-control" id="register-password">
-                            <div class="form-text">
-                                Your password must be >6 characters long.
-                            </div>
+                        </div>
+                        <div class="form-text top">
+                            Your password must be >6 characters long.
                         </div>
                     </form>
                 </div>
@@ -262,6 +224,45 @@
                     </div>
                     <button id="reset-button" type="button" class="btn btn-primary"><img src="svg/paper-plane-tilt.svg"
                             class="middle"> Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Modal -->
+    <div class="modal linksModal fade" id="links-modal" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header linksHeader" data-bs-theme="dark">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel"><img src="svg/user.svg" class="middle title">
+                        Profile</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body linksBody">
+                    <h5><img src="svg/link.svg" class="middle title"> Your Links</h5>
+                    <div id="links">
+                    </div>
+                    <form>
+                        <button class="btn btn-primary resetPass2" type="button" data-bs-toggle="modal"
+                            data-bs-target="#reset-modal"><img src="svg/question.svg" class="middle">
+                            Forgot
+                            Password</button>
+                    </form>
+                </div>
+                <div class="modal-footer linksFooter">
+                    <div class="footer-links">
+                        <p id="linksName"></p>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-danger" style="margin-right: 5px;" data-bs-toggle="modal"
+                            data-bs-target="#delete-modal"><img src="svg/warning.svg" class="middle">
+                            Delete Account</button>
+                        <button id="signOutBtn" type="button" class="btn btn-danger"><img src="svg/sign-in.svg"
+                                class="middle">
+                            Sign
+                            out</button>
+                    </div>
                 </div>
             </div>
         </div>
