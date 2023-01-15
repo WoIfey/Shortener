@@ -47,6 +47,7 @@ if (id) {
     if (snapshot.exists()) {
       location.assign(snapshot.val());
     } else {
+      document.querySelector("body").style.display = "inherit";
       document.querySelector(".alert").style.display = "inherit";
     }
   });
@@ -153,13 +154,13 @@ function copied() {
 copyBtn.addEventListener("click", () => {
   const text = uniqueID.textContent;
 
-  // create a temporary textarea element
+  // Create a temporary textarea element to copy
   const textArea = document.createElement("textarea");
   textArea.value = text;
   document.body.appendChild(textArea);
   textArea.select();
 
-  // copy the text to the clipboard
+  // Copy the text to the clipboard
   try {
     document.execCommand("copy");
     copied();
@@ -167,7 +168,7 @@ copyBtn.addEventListener("click", () => {
     alert("Couldn't copy URL.");
   }
 
-  // remove the temporary textarea element
+  // Remove the temporary textarea element
   document.body.removeChild(textArea);
 });
 
@@ -175,6 +176,11 @@ copyBtn.addEventListener("click", () => {
 onAuthStateChanged(auth, (user) => {
   if (user) {
     userData = user;
+    if (id) {
+      document.querySelector("body").style.display = "none";
+    } else {
+      document.querySelector("body").style.display = "inherit";
+    }
     loginBtn.style.display = "none";
     loginModal.hide();
     profileBtn.style.visibility = "visible";
@@ -240,6 +246,7 @@ onAuthStateChanged(auth, (user) => {
       }
     });
   } else {
+    document.querySelector("body").style.display = "inherit";
     notSignUp();
   }
 });

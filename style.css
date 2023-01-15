@@ -46,6 +46,7 @@ body {
   overflow-x: hidden;
   height: 200vh;
   width: 100vw;
+  display: none;
 }
 
 /* If theres an error in the shortened link */
