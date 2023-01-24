@@ -22,7 +22,18 @@
     </div>
     <!-- login and profile button -->
     <div id="signupBtn">
-        <button type="button" id="login" data-bs-toggle="modal" data-bs-target="#login-modal">
+        <div class="collapse" id="infoCollapse">
+            <div class="card card-body infoCard">
+                ⚠️ Every shortened links and accounts were recently deleted, please register again.
+            </div>
+        </div>
+        <p>
+            <a class="btn btn-danger info" data-bs-toggle="collapse" href="#infoCollapse" role="button"
+                aria-expanded="false" aria-controls="infoCollapse">
+                <img src="svg/warning.svg" class="middle"> Notice
+            </a>
+        </p>
+        <button type="button" id="login" data-bs-toggle="modal" data-bs-target="#register-modal">
             <img src="svg/sign-in.svg" class="middle title"> Sign Up</button>
         <button type="button" id="profile" data-bs-toggle="modal" data-bs-target="#links-modal">
             <img src="svg/user.svg" class="middle title"> Profile</button>
@@ -101,7 +112,7 @@
                     <div class="card" style="width: 16rem;">
                         <img src="svg/cursor-click.svg" class="infoIcon">
                         <div class="card-body">
-                            <h5 class="card-title">Tracking!</h5>
+                            <h5 class="card-title">Tracking! (❌)</h5>
                             <p class="card-text"><span style="color: #d9616f">track&nbsp;</span>your visits easily!
                             </p>
                         </div>
@@ -118,23 +129,28 @@
             <div class="modal-content">
                 <div class="modal-header" data-bs-theme="dark">
                     <h1 class="modal-title fs-5" id="staticBackdropLabel"><img src="svg/sign-in.svg"
-                            class="middle title"> Sign in</h1>
+                            class="middle title"> Sign In</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form class="row">
-                        <div class="mb-1">
-                            <label for="recipient-name" class="col-form-label">
-                                Email <img src="svg/at.svg" class="middle"></label>
-                            <input type="text" class="form-control" id="login-email">
+                    <form>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="login-email" placeholder="Email">
+                            <label for="recipient-name floatingInput" class="col-form-label"><img src="svg/at.svg"
+                                    class="middle">
+                                Email
+                            </label>
                         </div>
-                        <div class="col-auto">
-                            <label for="message-text" class="col-form-label">Password <img src="svg/password.svg"
-                                    class="middle"></label>
-                            <input type="password" class="form-control" id="login-password">
+                        <div class="form-floating">
+                            <input type="password" class="form-control" id="login-password" placeholder="Password">
+                            <label for="message-text floatingPassword" class="col-form-label"><img
+                                    src="svg/password.svg" class="middle">
+                                Password
+                            </label>
                             <button class="resetPass" type="button" data-bs-toggle="modal"
                                 data-bs-target="#reset-modal">
-                                Forgot Password?</button>
+                                Forgot Password?
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -144,9 +160,9 @@
                     </div>
                     <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
                         data-bs-target="#register-modal"><img src="svg/user.svg" class="middle">
-                        Register</button>
-                    <button id="login-button" type="button" class="btn btn-primary"><img src="svg/arrow-right.svg"
-                            class="middle"> Login</button>
+                    </button>
+                    <button id="login-button" type="button" class="btn btn-primary proceed"><img
+                            src="svg/arrow-right.svg" class="middle"> Sign In</button>
                 </div>
             </div>
         </div>
@@ -159,21 +175,24 @@
             <div class="modal-content">
                 <div class="modal-header" data-bs-theme="dark">
                     <h1 class="modal-title fs-5" id="staticBackdropLabel"><img src="svg/user.svg" class="middle title">
-                        Register new
-                        user</h1>
+                        Register</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form class="row">
-                        <div class="mb-1">
-                            <label for="recipient-name" class="col-form-label">
-                                Email <img src="svg/at.svg" class="middle"></label>
-                            <input type="text" class="form-control" id="register-email">
+                    <form>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="register-email" placeholder="Email">
+                            <label for="recipient-name floatingInput" class="col-form-label"><img src="svg/at.svg"
+                                    class="middle">
+                                Email
+                            </label>
                         </div>
-                        <div class="col-auto">
-                            <label for="message-text" class="col-form-label">Password <img src="svg/password.svg"
-                                    class="middle"></label>
-                            <input type="password" class="form-control" id="register-password">
+                        <div class="form-floating">
+                            <input type="password" class="form-control" id="register-password" placeholder="Password">
+                            <label for="message-text floatingPassword" class="col-form-label"><img
+                                    src="svg/password.svg" class="middle">
+                                Password
+                            </label>
                         </div>
                         <div class="form-text top">
                             Your password must be >6 characters long.
@@ -185,11 +204,10 @@
                         <p id="registerError"></p>
                     </div>
                     <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                        data-bs-target="#login-modal"><img src="svg/sign-in.svg" class="middle"> Sign
-                        In</button>
-                    <button id="register-button" type="button" class="btn btn-primary"><img src="svg/arrow-right.svg"
-                            class="middle">
-                        Proceed</button>
+                        data-bs-target="#login-modal"><img src="svg/sign-in.svg" class="middle"></button>
+                    <button id="register-button" type="button" class="btn btn-primary proceed"><img
+                            src="svg/arrow-right.svg" class="middle"> Register
+                    </button>
                 </div>
             </div>
         </div>
@@ -208,10 +226,12 @@
                 </div>
                 <div class="modal-body">
                     <form>
-                        <div class="mb-1">
-                            <label for="recipient-name" class="col-form-label">
-                                Email <img src="svg/at.svg" class="middle"></label>
-                            <input type="text" class="form-control" id="email-input">
+                        <div class="form-floating">
+                            <input type="email" class="form-control" id="email-input" placeholder="Email">
+                            <label for="recipient-name floatingInput" class="col-form-label"><img src="svg/at.svg"
+                                    class="middle">
+                                Email
+                            </label>
                             <div class="form-text">
                                 Be sure to check your junk email!
                             </div>
@@ -222,8 +242,8 @@
                     <div class="footer-reset">
                         <p id="resetError"></p>
                     </div>
-                    <button id="reset-button" type="button" class="btn btn-primary"><img src="svg/paper-plane-tilt.svg"
-                            class="middle"> Send</button>
+                    <button id="reset-button" type="button" class="btn btn-primary proceed"><img
+                            src="svg/paper-plane-tilt.svg" class="middle"> Send</button>
                 </div>
             </div>
         </div>
@@ -281,22 +301,32 @@
                 <div class="modal-body">
                     <form>
                         <div class="mb-1">
-                            <h3 style="color: white;">You cannot reverse this action!</h1>
-                                <p style="color: white;">You will lose all your shortened links.</p>
+                            <h3 style="color: white;">You <span style="color: red;">cannot</span> reverse this
+                                action!</h1>
+                                <p style="color: white; padding-bottom: 10px;">You will <span style="color: red;">lose
+                                        all</span> your shortened links.
+                                </p>
+                                <div class="form-floating mb-2">
+                                    <input type="password" class="form-control" id="confirmation"
+                                        placeholder="Confirm Password">
+                                    <label for="message-text floatingPassword" class="col-form-label"><img
+                                            src="svg/password.svg" class="middle">
+                                        Confirm Password
+                                    </label>
+                                </div>
                         </div>
                     </form>
                 </div>
-                <div class="modal-footer deleteFooter">
-                    <h5 id="deleteFooter" style="color: white;">Are you sure?</h5>
-                    <div>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#links-modal" style="margin-right: 5px;"><img src="svg/arrow-left.svg"
-                                class="middle">
-                            Abort!</button>
-                        <button id="deleteAcc" type="button" class="btn btn-danger"><img src="svg/warning.svg"
-                                class="middle">
-                            CONFIRM</button>
+                <div class="modal-footer">
+                    <div class="footer-delete">
+                        <p id="deleteFooter"></p>
                     </div>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#links-modal"
+                        style="margin-right: 5px;"><img src="svg/arrow-left.svg" class="middle">
+                        Abort!</button>
+                    <button id="deleteAcc" type="button" class="btn btn-danger"><img src="svg/warning.svg"
+                            class="middle">
+                        CONFIRM</button>
                 </div>
             </div>
         </div>

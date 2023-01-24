@@ -185,7 +185,7 @@ onAuthStateChanged(auth, (user) => {
     loginModal.hide();
     profileBtn.style.visibility = "visible";
     linksName.innerText = "Signed in as " + user.email;
-    deleteName.innerText = "DELETE " + user.email;
+    deleteName.innerText = "Permanently delete " + user.email;
     SignedIn();
 
     // Creates a unique ID for database when pressing the send button
@@ -254,7 +254,7 @@ onAuthStateChanged(auth, (user) => {
 // Reset password
 document.querySelector("#reset-button").addEventListener("click", function () {
   const email = document.querySelector("#email-input").value;
-  const errorMessage = document.querySelector("#resetError");
+  const errorMessage = document.querySelector(".footer-reset");
   sendPasswordResetEmail(auth, email)
     .then(() => {
       errorMessage.innerText = "✅ Sent!";
@@ -264,11 +264,19 @@ document.querySelector("#reset-button").addEventListener("click", function () {
       }, 5000);
     })
     .catch((error) => {
-      errorMessage.innerText = error;
-      errorMessage.style.display = "inherit";
-      setTimeout(() => {
-        errorMessage.style.display = "none";
-      }, 5000);
+      if (error.message === `Firebase: Error (auth/missing-email).`) {
+        errorMessage.innerText = "❌ Enter Email!";
+        errorMessage.style.display = "inherit";
+      } else if (error.message === `Firebase: Error (auth/invalid-email).`) {
+        errorMessage.innerText = "⚠️ Invalid Email!";
+        errorMessage.style.display = "inherit";
+      } else if (error.message === `Firebase: Error (auth/user-not-found).`) {
+        errorMessage.innerText = "❌ User does not exist!";
+        errorMessage.style.display = "inherit";
+      } else {
+        errorMessage.innerText = "⚠️ Something went wrong!";
+        errorMessage.style.display = "inherit";
+      }
     });
 });
 
@@ -276,13 +284,24 @@ document.querySelector("#reset-button").addEventListener("click", function () {
 document.querySelector("#login-button").addEventListener("click", function () {
   const email = document.querySelector("#login-email").value;
   const password = document.querySelector("#login-password").value;
-  const errorMessage = document.querySelector("#loginError");
+  const errorMessage = document.querySelector(".footer-login");
   signInWithEmailAndPassword(auth, email, password).catch((error) => {
-    errorMessage.innerText = error;
-    errorMessage.style.display = "inherit";
-    setTimeout(() => {
-      errorMessage.style.display = "none";
-    }, 5000);
+    if (error.message === `Firebase: Error (auth/invalid-email).`) {
+      errorMessage.innerText = "⚠️ Invalid Email!";
+      errorMessage.style.display = "inherit";
+    } else if (error.message === `Firebase: Error (auth/wrong-password).`) {
+      errorMessage.innerText = "❌ Wrong Password!";
+      errorMessage.style.display = "inherit";
+    } else if (error.message === `Firebase: Error (auth/internal-error).`) {
+      errorMessage.innerText = "⚠️ Enter your password!";
+      errorMessage.style.display = "inherit";
+    } else if (error.message === `Firebase: Error (auth/user-not-found).`) {
+      errorMessage.innerText = "❌ User does not exist!";
+      errorMessage.style.display = "inherit";
+    } else {
+      errorMessage.innerText = "⚠️ Something went wrong!";
+      errorMessage.style.display = "inherit";
+    }
   });
 });
 
@@ -292,19 +311,78 @@ document
   .addEventListener("click", function () {
     const email = document.querySelector("#register-email").value;
     const password = document.querySelector("#register-password").value;
-    const errorMessage = document.querySelector("#registerError");
+    const errorMessage = document.querySelector(".footer-register");
     createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
         registerModal.hide();
       })
       .catch((error) => {
-        errorMessage.innerText = error;
-        errorMessage.style.display = "inherit";
-        setTimeout(() => {
-          errorMessage.style.display = "none";
-        }, 5000);
+        if (error.message === `Firebase: Error (auth/invalid-email).`) {
+          errorMessage.innerText = "⚠️ Invalid Email!";
+          errorMessage.style.display = "inherit";
+        } else if (error.message === `Firebase: Error (auth/wrong-password).`) {
+          errorMessage.innerText = "❌ Wrong Password!";
+          errorMessage.style.display = "inherit";
+        } else if (error.message === `Firebase: Error (auth/internal-error).`) {
+          errorMessage.innerText = "⚠️ Enter your password!";
+          errorMessage.style.display = "inherit";
+        } else if (error.message === `Firebase: Error (auth/user-not-found).`) {
+          errorMessage.innerText = "❌ User does not exist!";
+          errorMessage.style.display = "inherit";
+        } else if (
+          error.message === `Firebase: Error (auth/email-already-in-use).`
+        ) {
+          errorMessage.innerText = "❌ Email is already in use.";
+          errorMessage.style.display = "inherit";
+        } else if (
+          error.message ===
+          `Firebase: Password should be at least 6 characters (auth/weak-password).`
+        ) {
+          errorMessage.innerText = "❌ Password is too short!";
+          errorMessage.style.display = "inherit";
+        } else if (
+          error.message ===
+          `Firebase: Password cannot be longer than 4096 characters (auth/password-does-not-meet-requirements).`
+        ) {
+          errorMessage.innerText = "❌ Password is too long!";
+          errorMessage.style.display = "inherit";
+        } else {
+          errorMessage.innerText = "⚠️ Something went wrong!";
+          errorMessage.style.display = "inherit";
+        }
       });
   });
+
+// Delete account section
+const deleteAcc = document.querySelector("#deleteAcc");
+const deleteFooter = document.querySelector("#deleteFooter");
+deleteAcc.addEventListener("click", (e) => {
+  const auth = getAuth();
+  const user = auth.currentUser;
+  const password = document.querySelector("#confirmation").value;
+  const email = user.email;
+  if (e.button == 0) {
+    signInWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        deleteUser(user).then(() => {
+          deleteFooter.innerText = "✅ Account Deleted";
+          deleteFooter.style.color = "greenyellow";
+          setInterval(() => {
+            window.location.reload();
+          }, 2000);
+        });
+      })
+      .catch((error) => {
+        if (error.message === `Firebase: Error (auth/wrong-password).`) {
+          deleteFooter.innerText = "❌ Wrong password!";
+        } else if (error.message === `Firebase: Error (auth/internal-error).`) {
+          deleteFooter.innerText = "⚠️ Confirm password!";
+        } else {
+          deleteFooter.innerText = "⚠️ Something went wrong!";
+        }
+      });
+  }
+});
 
 // Logout button
 const logOut = document.querySelector("#signOutBtn");
@@ -314,23 +392,6 @@ logOut.addEventListener("click", (e) => {
     signOut(auth).then(() => {
       // Sign-out successful.
       window.location.reload();
-    });
-  }
-});
-
-// Delete account section
-const deleteAcc = document.querySelector("#deleteAcc");
-const deleteFooter = document.querySelector("#deleteFooter");
-deleteAcc.addEventListener("click", (e) => {
-  if (e.button == 0) {
-    const auth = getAuth();
-    const user = auth.currentUser;
-    deleteUser(user).then(() => {
-      deleteFooter.innerText = "✅ Account Deleted";
-      deleteFooter.style.color = "greenyellow";
-      setInterval(() => {
-        window.location.reload();
-      }, 2000);
     });
   }
 });

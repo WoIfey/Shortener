@@ -97,13 +97,26 @@ li {
   color: var(--blue-color);
 }
 
+.info {
+  position: absolute;
+  top: 45px;
+  right: 200px;
+}
+
+.infoCard {
+  top: 95px;
+  right: 0px;
+  border-radius: 100px;
+  font-size: 18px;
+}
+
 /* Login/Logout button */
 #signupBtn {
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
   width: 100vw;
-  padding: 0px 30px 30px 30px;
+  padding: 0px 30px 30px;
   position: fixed;
   z-index: 2;
   font-size: 25px;
@@ -137,19 +150,20 @@ li {
 /* modal footer */
 .footer-login,
 .footer-register,
-.footer-reset {
-  text-align: end;
-  padding-right: 15px;
-}
-.footer-login {
-  color: var(--blue-color);
-}
-#loginError,
-#resetError,
-#registerError {
+.footer-reset,
+.footer-delete {
   color: var(--white);
-  font-size: 14px;
-  width: 350px;
+  font-size: 15px;
+  position: absolute;
+  left: 15px;
+  z-index: 1;
+}
+
+.deleteName {
+  width: 400px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 /* reset password text */
@@ -246,11 +260,11 @@ li {
   padding-top: 5px;
   padding-bottom: 5px;
   margin-left: -70px;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 #send:hover {
   background: #bd2a5b;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 
 #err {
@@ -262,7 +276,7 @@ li {
   display: none;
   width: auto;
   height: auto;
-  margin: 15px 15px 0 15px;
+  margin: 15px 15px 0;
   padding: 10px;
   border-radius: 75px;
   background-color: var(--white);
@@ -320,6 +334,7 @@ li {
   color: var(--white);
 }
 
+/* width for profile modal */
 .linksModal {
   --bs-modal-width: 600px !important;
 }
@@ -330,8 +345,7 @@ li {
   width: 600px !important;
 }
 
-.linksFooter,
-.deleteFooter {
+.linksFooter {
   justify-content: space-between;
 }
 
@@ -342,12 +356,27 @@ li {
   background: #2e313b;
   width: 450px;
 }
+
 .btn {
   border-radius: 75px;
+  z-index: 10;
 }
+
+/* input black background */
 .form-control {
-  background: rgb(34, 34, 34);
+  background: #202020;
   color: var(--white);
+}
+.form-control:focus {
+  background: #202020;
+  color: var(--white);
+}
+
+/* Remove white background when you autofill your in credentials */
+.form-control:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #202020 inset !important;
+  -webkit-text-fill-color: var(--white) !important;
+  caret-color: var(--white);
 }
 
 /* Profile section */
@@ -391,7 +420,7 @@ li {
   cursor: pointer;
 } */
 
-/* About section */
+/* Features section */
 #aboutSection {
   background-image: url(Images/about.webp);
   height: 100vh;
@@ -429,6 +458,11 @@ li {
   justify-content: space-evenly;
 }
 
+/* remove border */
+.card {
+  border: none !important;
+}
+
 /* fix position for icons */
 .middle {
   vertical-align: -0.2em;
@@ -458,6 +492,15 @@ li {
     width: 120px;
     height: 40px;
     font-size: 17px;
+  }
+  .info {
+    top: 32px;
+    right: 160px;
+    font-size: 15px;
+  }
+
+  .infoCard {
+    font-size: 15px;
   }
 
   .alert {
@@ -604,6 +647,16 @@ li {
   ul,
   #inputHeader {
     font-size: 15px;
+  }
+
+  .info {
+    top: 60px;
+    right: 20px;
+    font-size: 16px;
+  }
+
+  .infoCard {
+    font-size: 13px;
   }
 
   .bigger {
