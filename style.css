@@ -71,7 +71,7 @@ ul {
   list-style-type: none;
   padding: 35px 35px 35px 45px;
   position: fixed;
-  z-index: 2;
+  z-index: 5;
   font-size: 20px;
 }
 

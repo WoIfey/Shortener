@@ -45,6 +45,7 @@ if (id) {
   const dbRef = ref(getDatabase());
   get(child(dbRef, `links/${id}/URL`)).then((snapshot) => {
     if (snapshot.exists()) {
+      document.querySelector("body").style.display = "none";
       location.assign(snapshot.val());
     } else {
       document.querySelector("body").style.display = "inherit";
@@ -181,6 +182,7 @@ onAuthStateChanged(auth, (user) => {
     } else {
       document.querySelector("body").style.display = "inherit";
     }
+
     loginBtn.style.display = "none";
     loginModal.hide();
     profileBtn.style.visibility = "visible";
@@ -245,7 +247,7 @@ onAuthStateChanged(auth, (user) => {
         linkElement.innerText = linkElement.href;
       }
     });
-  } else {
+  } else if (id == null) {
     document.querySelector("body").style.display = "inherit";
     notSignUp();
   }
