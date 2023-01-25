@@ -24,7 +24,7 @@
     <div id="signupBtn">
         <div class="collapse" id="infoCollapse">
             <div class="card card-body infoCard">
-                ⚠️ Every shortened links and accounts were recently deleted, please register again.
+                <p id="infoTxt"></p>
             </div>
         </div>
         <p>
@@ -159,10 +159,10 @@
                         <p id="loginError"></p>
                     </div>
                     <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                        data-bs-target="#register-modal"><img src="svg/user.svg" class="middle">
+                        data-bs-target="#register-modal"><img src="svg/user-plus.svg" class="middle">
                     </button>
-                    <button id="login-button" type="button" class="btn btn-primary proceed"><img
-                            src="svg/arrow-right.svg" class="middle"> Sign In</button>
+                    <button id="login-button" type="button" class="btn btn-primary proceed"><img src="svg/sign-in.svg"
+                            class="middle"> Sign In</button>
                 </div>
             </div>
         </div>
@@ -174,7 +174,8 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header" data-bs-theme="dark">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel"><img src="svg/user.svg" class="middle title">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel"><img src="svg/user-plus.svg"
+                            class="middle title">
                         Register</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -203,10 +204,10 @@
                     <div class="footer-register">
                         <p id="registerError"></p>
                     </div>
-                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                         data-bs-target="#login-modal"><img src="svg/sign-in.svg" class="middle"></button>
-                    <button id="register-button" type="button" class="btn btn-primary proceed"><img
-                            src="svg/arrow-right.svg" class="middle"> Register
+                    <button id="register-button" type="button" class="btn btn-success proceed"><img
+                            src="svg/user-plus.svg" class="middle"> Register
                     </button>
                 </div>
             </div>
@@ -321,12 +322,13 @@
                     <div class="footer-delete">
                         <p id="deleteFooter"></p>
                     </div>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#links-modal"
-                        style="margin-right: 5px;"><img src="svg/arrow-left.svg" class="middle">
-                        Abort!</button>
-                    <button id="deleteAcc" type="button" class="btn btn-danger"><img src="svg/warning.svg"
-                            class="middle">
-                        CONFIRM</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#links-modal">
+                        <img src="svg/arrow-left.svg" class="middle">
+                        Abort!
+                    </button>
+                    <button id="deleteAcc" type="button" class="btn btn-danger">
+                        <img src="svg/trash.svg" class="middle">
+                    </button>
                 </div>
             </div>
         </div>

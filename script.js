@@ -253,6 +253,13 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
+// Notice text
+const info = ref(db, "info");
+onValue(info, (snapshot) => {
+  const data = snapshot.val();
+  document.querySelector("#infoTxt").innerText = data;
+});
+
 // Reset password
 document.querySelector("#reset-button").addEventListener("click", function () {
   const email = document.querySelector("#email-input").value;

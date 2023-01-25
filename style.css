@@ -606,8 +606,8 @@ li {
   .linksContent {
     width: 500px !important;
   }
-  .linksModal {
-    --bs-modal-width: 500px !important;
+  .modal {
+    --bs-modal-width: 400px !important;
   }
 
   .modal-header,
@@ -617,8 +617,8 @@ li {
     width: 400px;
   }
 
-  .modal {
-    --bs-modal-width: 400px !important;
+  #links-modal {
+    --bs-modal-width: 500px !important;
   }
 
   .copy {
@@ -758,7 +758,22 @@ li {
     width: 30px;
     height: 30px;
   }
+  .footer-login,
+  .footer-register,
+  .footer-reset,
+  .footer-delete {
+    font-size: 11px;
+  }
   #copyIcon {
     margin-top: -20px;
+  }
+  .form-text {
+    font-size: 12px;
+  }
+  .mb-1 h3 {
+    font-size: 17px;
+  }
+  .mb-1 p {
+    font-size: 13px;
   }
 }
