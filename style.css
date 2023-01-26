@@ -475,10 +475,12 @@ li {
   height: 20px !important;
 }
 
+#githubFlex {
+  padding: 10px;
+  width: 80px;
+}
+
 #github {
-  position: absolute;
-  bottom: -930px;
-  right: 30px;
   border-radius: 50px;
   width: 60px;
   height: 60px;
