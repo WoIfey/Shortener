@@ -294,6 +294,13 @@ document.querySelector("#reset-button").addEventListener("click", function () {
       } else if (error.message === `Firebase: Error (auth/user-not-found).`) {
         errorMessage.innerText = "❌ User does not exist!";
         errorMessage.style.display = "inherit";
+      } else if (
+        error.message ===
+        `Firebase: Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later. (auth/too-many-requests).`
+      ) {
+        errorMessage.innerText = "❌ Try again later.";
+      } else if (error.message === `Firebase: Error (auth/user-disabled).`) {
+        errorMessage.innerText = "❌ Disabled account.";
       } else {
         errorMessage.innerText = "⚠️ Something went wrong!";
         errorMessage.style.display = "inherit";
@@ -319,6 +326,13 @@ document.querySelector("#login-button").addEventListener("click", function () {
     } else if (error.message === `Firebase: Error (auth/user-not-found).`) {
       errorMessage.innerText = "❌ User does not exist!";
       errorMessage.style.display = "inherit";
+    } else if (
+      error.message ===
+      `Firebase: Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later. (auth/too-many-requests).`
+    ) {
+      errorMessage.innerText = "❌ Try again later.";
+    } else if (error.message === `Firebase: Error (auth/user-disabled).`) {
+      errorMessage.innerText = "❌ Disabled account.";
     } else {
       errorMessage.innerText = "⚠️ Something went wrong!";
       errorMessage.style.display = "inherit";
@@ -367,6 +381,13 @@ document
         ) {
           errorMessage.innerText = "❌ Password is too long!";
           errorMessage.style.display = "inherit";
+        } else if (
+          error.message ===
+          `Firebase: Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later. (auth/too-many-requests).`
+        ) {
+          errorMessage.innerText = "❌ Try again later.";
+        } else if (error.message === `Firebase: Error (auth/user-disabled).`) {
+          errorMessage.innerText = "❌ Disabled account.";
         } else {
           errorMessage.innerText = "⚠️ Something went wrong!";
           errorMessage.style.display = "inherit";
@@ -398,6 +419,13 @@ deleteAcc.addEventListener("click", (e) => {
           deleteFooter.innerText = "❌ Wrong password!";
         } else if (error.message === `Firebase: Error (auth/internal-error).`) {
           deleteFooter.innerText = "⚠️ Confirm password!";
+        } else if (
+          error.message ===
+          `Firebase: Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later. (auth/too-many-requests).`
+        ) {
+          deleteFooter.innerText = "❌ Try again later.";
+        } else if (error.message === `Firebase: Error (auth/user-disabled).`) {
+          deleteFooter.innerText = "❌ Disabled account.";
         } else {
           deleteFooter.innerText = "⚠️ Something went wrong!";
         }
