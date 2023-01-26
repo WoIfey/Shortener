@@ -475,6 +475,22 @@ li {
   height: 20px !important;
 }
 
+#github {
+  position: absolute;
+  bottom: -930px;
+  right: 30px;
+  border-radius: 50px;
+  width: 60px;
+  height: 60px;
+  transition: 0.3s;
+  background: var(--white);
+}
+
+#github:hover {
+  box-shadow: 0 0 10px white;
+  transform: translateY(-2px);
+}
+
 /* Mobile and some tablets */
 @media only screen and (max-width: 767px) {
   #urlSection {
