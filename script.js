@@ -41,14 +41,21 @@ const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const id = urlParams.get("i");
 
+function hide() {
+  document.querySelector("body").style.display = "inherit";
+  document.querySelector("main").style.display = "none";
+  document.querySelector("body").style.background = "white";
+}
+
 if (id) {
   const dbRef = ref(getDatabase());
   get(child(dbRef, `links/${id}/URL`)).then((snapshot) => {
     if (snapshot.exists()) {
-      document.querySelector("body").style.display = "none";
+      hide();
+      document.querySelector(".spinner-border").style.display = "inherit";
       location.assign(snapshot.val());
     } else {
-      document.querySelector("body").style.display = "inherit";
+      hide();
       document.querySelector(".alert").style.display = "inherit";
     }
   });
@@ -194,6 +201,7 @@ onAuthStateChanged(auth, (user) => {
     button.addEventListener("click", function (e) {
       e.preventDefault();
 
+      if (!input.value) return;
       if (isValidHttpUrl(input.value) == true) {
         shortener();
         shortened();
@@ -207,6 +215,7 @@ onAuthStateChanged(auth, (user) => {
       if (e.key == "Enter") {
         e.preventDefault();
 
+        if (!input.value) return;
         if (isValidHttpUrl(input.value) == true) {
           shortener();
           shortened();
@@ -250,6 +259,8 @@ onAuthStateChanged(auth, (user) => {
   } else if (id == null) {
     document.querySelector("body").style.display = "inherit";
     notSignUp();
+  } else {
+    console.log("Something wrong happened");
   }
 });
 

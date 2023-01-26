@@ -52,11 +52,13 @@ body {
 /* If theres an error in the shortened link */
 .alert {
   display: none;
-  position: fixed;
-  z-index: 5;
-  top: 90px;
-  left: 50px;
 }
+
+/* loading shortened link */
+.spinner-border {
+  display: none;
+}
+
 #back {
   border: none;
   background: var(--pink-color);
@@ -503,11 +505,8 @@ li {
     font-size: 15px;
   }
 
-  .alert {
-    top: 60px;
-    left: 20px;
-    width: 200px;
-    height: auto;
+  .alertFlex {
+    justify-content: center;
   }
 
   ul {
