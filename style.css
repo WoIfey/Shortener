@@ -740,6 +740,10 @@ li {
     width: 300px;
   }
 
+  .modal-footer {
+    padding: 8px;
+  }
+
   .modal {
     --bs-modal-width: 300px !important;
   }
@@ -762,6 +766,7 @@ li {
   .footer-reset,
   .footer-delete {
     font-size: 11px;
+    left: 8px;
   }
   #copyIcon {
     margin-top: -20px;

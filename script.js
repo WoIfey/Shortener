@@ -43,6 +43,7 @@ const id = urlParams.get("i");
 
 function hide() {
   document.querySelector("body").style.display = "inherit";
+  document.querySelector("body").style.height = "100vh";
   document.querySelector("main").style.display = "none";
   document.querySelector("body").style.background = "white";
 }
