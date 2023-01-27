@@ -73,7 +73,7 @@ ul {
   list-style-type: none;
   padding: 35px 35px 35px 45px;
   position: fixed;
-  z-index: 5;
+  z-index: 11;
   font-size: 20px;
 }
 
