@@ -230,6 +230,13 @@ onAuthStateChanged(auth, (user) => {
     const listRef = ref(db, "users/" + user.uid);
     onValue(listRef, (snapshot) => {
       const items = snapshot.val();
+      if (items == null) {
+        document.querySelector("#empty").style.display = "inherit";
+        document.querySelector("#empty").innerText =
+          "You seem to have no links shortened!";
+      } else {
+        document.querySelector("#empty").style.display = "none";
+      }
 
       // Clear all links
       document.querySelector("#links").replaceChildren();
