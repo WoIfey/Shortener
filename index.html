@@ -19,10 +19,10 @@
     <!-- error in shortened link -->
     <div class="alert alert-danger" role="alert">
         <div>
-            <img src="svg/warning.svg" class="middle"> This shortened link does not exist.
+            <img src="svg/warning.svg" class="middle"> This shortener is archived, it is not meant to be used.
         </div>
         <div>
-            <a href="http://wwx.ddns.net">
+            <a href="/">
                 <button type="button" id="back">
                     <img src="svg/arrow-left.svg" class="middle">
                     Go back
@@ -31,6 +31,28 @@
         </div>
     </div>
     <main>
+        <!-- archive modal -->
+        <div class="modal fade" id="archiveModal" data-bs-backdrop="static" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="archiveModalLabel">
+                            <img src="svg/warning.svg" class="middle me-2" alt="Warning">
+                            Important Notice
+                        </h5>
+                    </div>
+                    <div class="modal-body">
+                        <p>This project is archived as a demonstration of my work back in 2022.</p>
+                        <p class="mt-2">Existing functionality is available for demonstration, but links will not be
+                            functional for other users.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">I understand</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- navbar -->
         <div id="navbar">
             <ul>
