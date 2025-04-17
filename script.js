@@ -155,9 +155,7 @@ copyBtn.addEventListener("click", async () => {
 
 // Check if user is logged in or logged out and stay logged in
 function App() {
-    if (id) {
-      document.querySelector("body").style.display = "none";
-    } else {
+    if (!id) {
       document.querySelector("body").style.display = "inherit";
     }
 
